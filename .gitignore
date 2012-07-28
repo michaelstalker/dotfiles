@@ -1,0 +1,6 @@
+*.swn
+*.swo
+*.swp
+.DS_Store
+.VimballRecord
+.netrwhist
