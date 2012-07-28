@@ -1,0 +1,34 @@
+[user]
+  name = Michael Stalker
+  email = EMAIL
+[color]
+  branch = auto
+  diff = auto
+  status = auto
+  ui = true
+[color "branch"]
+  current = yellow reverse
+  local = yellow
+  remote = green
+[color "diff"]
+  meta = yellow bold
+  frag = magenta bold
+  old = red bold
+  new = green bold
+[color "status"]
+  added = yellow
+  changed = green
+  untracked = cyan
+[github]
+  user = mstalker
+  token = GITHUB_TOKEN
+[merge]
+  tool = vimdiff
+[diff]
+  tool = vimdiff
+[difftool]
+  prompt = false
+[push]
+  default = tracking
+[alias]
+  nicelog = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
