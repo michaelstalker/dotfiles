@@ -13,8 +13,6 @@ alias rdm='rake db:migrate'
 alias rdmr='rake db:migrate:redo'
 
 # Git
-source ~/git-completion.bash
- 
 alias gs='git status'
 alias gd='git diff'
 alias gdc='git diff --cached'
@@ -38,9 +36,15 @@ set -o vi
 export BUNDLER_EDITOR=mvim
 
 # Exuberant Ctags
-export PATH="/usr/local/bin:$PATH"
-export PATH=/Applications/Utilities/:/Applications/Utilities/larceny-0.97-bin-native-ia32-macosx/
+export PATH=/usr/local/bin:$PATH
+export PATH=/Applications/Utilities/:$PATH
+export PATH=/Applications/Utilities/larceny-0.97-bin-native-ia32-macosx/:$PATH
 
+# Source Files
+if [ -f ~/git-completion.bash ]; then
+  source ~/git-completion.bash
+fi
+ 
 if [ -f ~/.host_bash_profile ]; then
   source ~/.host_bash_profile
 fi
