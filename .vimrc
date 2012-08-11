@@ -18,11 +18,6 @@ set exrc " enable per-directory .vimrc files
 
 let mapleader = '\'
 
-
-filetype plugin indent on
-
-call pathogen#infect()
-
 " Source the vimrc file after saving it
 if has("autocmd")
   autocmd BufWritePost .vimrc source $MYVIMRC
@@ -48,6 +43,38 @@ syntax on " syntax highlighting on
 
 " Automatically fix a misspelling
 ab teh the
+
+filetype off                   " required!
+
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+" let Vundle manage Vundle
+" required! 
+Bundle 'gmarik/vundle'
+
+" GitHub bundles
+Bundle 'mileszs/ack.vim'
+Bundle 'kchmck/vim-coffee-script'
+Bundle 'tpope/vim-endwise'
+Bundle 'pangloss/vim-javascript'
+Bundle 'briancollins/vim-jst'
+Bundle 'tpope/vim-fugitive'
+Bundle 'tpope/vim-rails.git'
+Bundle 'scrooloose/nerdtree'
+" Bundle 'Lokaltog/vim-easymotion'
+" Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
+
+" vim-scripts repos
+Bundle 'taglist.vim'
+" Bundle 'L9'
+" Bundle 'FuzzyFinder'
+
+" non github repos
+Bundle 'git://git.wincent.com/command-t.git'
+" Use control P instead someday
+
+filetype plugin indent on     " required!
 
 " Source files
 source $VIMRUNTIME/vimrc_example.vim
