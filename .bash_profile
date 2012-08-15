@@ -16,6 +16,7 @@ alias rdmr='rake db:migrate:redo'
 alias gs='git status'
 alias gd='git diff'
 alias gdc='git diff --cached'
+alias gdw='git diff --word-diff'
 alias ga='git add'
 alias ga.='git add .'
 alias gp='git push'
@@ -34,9 +35,7 @@ set -o vi
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" # Load RVM function
 
 export BUNDLER_EDITOR=mvim
-
-# Exuberant Ctags
-export PATH=/usr/local/bin:$PATH
+export PATH=/usr/local/bin:$PATH # Exuberant Ctags
 export PATH=/Applications/Utilities/:$PATH
 export PATH=/Applications/Utilities/larceny-0.97-bin-native-ia32-macosx/:$PATH
 

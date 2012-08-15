@@ -1,23 +1,37 @@
 colorscheme newdesert
 
 imap kk <Esc>
-imap <D-d> <ESC>:NERDTreeToggle<CR>i
 map <Space> :
+
+" Braces, brackets, parentheses
+inoremap { {}<Left>
+inoremap [ []<Left>
+inoremap ( ()<Left>
+
+" Traversing windows
 map <Down> <C-W>j
 map <Up> <C-W>k
 map <Right> <C-W>l
 map <Left> <C-W>h
+map <C-j> <C-W>j
+map <C-k> <C-W>k
+map <C-h> <C-W>h
+map <C-l> <C-W>l
+
+" NERDTree
+imap <D-d> <ESC>:NERDTreeToggle<CR>i
 map <D-d> :NERDTreeToggle<CR>
 map <leader>d :NERDTreeToggle<CR>
+
+" Tlist
 map <D-c> :TlistToggle<CR>
 map <leader>c :TlistToggle<CR>
-map <leader>v :tabedit $MYVIMRC<CR>
 
 set softtabstop=2 shiftwidth=2 expandtab
 set exrc " enable per-directory .vimrc files
 
+map <leader>v :tabedit $MYVIMRC<CR>
 let mapleader = '\'
-
 
 filetype plugin indent on
 
