@@ -27,9 +27,19 @@ map <leader>d :NERDTreeToggle<CR>
 map <D-c> :TlistToggle<CR>
 map <leader>c :TlistToggle<CR>
 
+set softtabstop=2 shiftwidth=2 expandtab
+set exrc " enable per-directory .vimrc files
+
 map <leader>v :tabedit $MYVIMRC<CR>
 let mapleader = '\'
 
+<<<<<<< HEAD
+filetype plugin indent on
+
+call pathogen#infect()
+
+=======
+>>>>>>> 7c9df8898ca09009a9754b6f7581d3993d32cd74
 " Source the vimrc file after saving it
 if has("autocmd")
   autocmd BufWritePost .vimrc source $MYVIMRC
@@ -40,8 +50,6 @@ if has("gui_running")
   colorscheme desert
 endif
 
-set softtabstop=2 shiftwidth=2 expandtab
-set exrc " enable per-directory .vimrc files
 set nocompatible
 set number	" Show numbers on left
 set lbr!	" Wrap lines at word
@@ -88,7 +96,7 @@ Bundle 'taglist.vim'
 Bundle 'git://git.wincent.com/command-t.git'
 " Use control P instead someday
 
-filetype plugin indent on " required!
+filetype plugin indent on     " required!
 
 " Source files
 source $VIMRUNTIME/vimrc_example.vim
