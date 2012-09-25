@@ -62,7 +62,10 @@ fi
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" # Load RVM function
 
+# Turn off auto-correction
+unsetopt correct_all
 
 # Set environment variables
+export EDITOR=vim
 export BUNDLER_EDITOR=mvim
-export PATH=$HOME/pear/bin/:/Applications/Utilities/larceny-0.97-bin-native-ia32-macosx/:/Applications/Utilities/:$HOME/.rvm/gems/ruby-1.9.2-p290/bin:$HOME/.rvm/gems/ruby-1.9.2-p290@global/bin:$HOME/.rvm/rubies/ruby-1.9.2-p290/bin:$HOME/.rvm/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/usr/local/git/bin
+export PATH=$HOME/pear/bin/:/Applications/Utilities/larceny-0.97-bin-native-ia32-macosx/:/Applications/Utilities/:$HOME/.rvm/gems/ruby-1.9.2-p290/bin:$HOME/.rvm/gems/ruby-1.9.2-p290@global/bin:$HOME/.rvm/rubies/ruby-1.9.2-p290/bin:$HOME/.rvm/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:/usr/local/git/bin
