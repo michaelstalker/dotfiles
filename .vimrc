@@ -20,6 +20,8 @@ Bundle 'scrooloose/nerdcommenter'
 Bundle 'tpope/vim-cucumber'
 Bundle 'godlygeek/tabular'
 Bundle 'Raimondi/delimitMate'
+Bundle 'jc00ke/thor.vim'
+Bundle 'tsaleh/vim-matchit'
 " Bundle 'Lokaltog/vim-easymotion'
 " Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
 
@@ -76,8 +78,8 @@ map <D-d> :NERDTreeToggle<CR>
 map <leader>d :NERDTreeToggle<CR>
 
 " Tlist
-map <D-c> :TlistToggle<CR>
-map <leader>c :TlistToggle<CR>
+map <D-l> :TlistToggle<CR>
+map <leader>l :TlistToggle<CR>
 
 map <leader>v :tabedit $MYVIMRC<CR>
 let mapleader = '\'
