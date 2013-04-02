@@ -17,6 +17,9 @@ alias la='ls -la'
 # Testing
 alias cuke='bundle exec cucumber'
 
+# Rake
+alias rake='noglob rake'
+
 # Git
 alias gs='git status'
 alias gd='git diff'

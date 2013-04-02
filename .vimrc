@@ -22,18 +22,19 @@ Bundle 'godlygeek/tabular'
 Bundle 'Raimondi/delimitMate'
 Bundle 'jc00ke/thor.vim'
 Bundle 'tsaleh/vim-matchit'
+Bundle 'AndrewRadev/linediff.vim'
+Bundle 'majutsushi/tagbar'
+Bundle 'tpope/vim-surround'
+Bundle 'kien/ctrlp.vim'
 " Bundle 'Lokaltog/vim-easymotion'
 " Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
 
 " vim-scripts repos
-Bundle 'taglist.vim'
 Bundle 'ruby-matchit'
+Bundle 'vimwiki'
+Bundle 'AnsiEsc.vim'
 " Bundle 'L9'
 " Bundle 'FuzzyFinder'
-
-" non github repos
-Bundle 'git://git.wincent.com/command-t.git'
-" Use control P instead someday
 
 filetype plugin indent on " required!
 
@@ -52,16 +53,10 @@ map <C-k> <C-W>k
 map <C-h> <C-W>h
 map <C-l> <C-W>l
 
+" Tagbar
+map <D-t> :TagbarToggle<CR>
+
 " Traversing tabs
-nmap <D-1> 1gt
-nmap <D-2> 2gt
-nmap <D-3> 3gt
-nmap <D-4> 4gt
-nmap <D-5> 5gt
-nmap <D-6> 6gt
-nmap <D-7> 7gt
-nmap <D-8> 8gt
-nmap <D-9> 9gt
 imap <D-1> <ESC>1gt
 imap <D-2> <ESC>2gt
 imap <D-3> <ESC>3gt
@@ -71,18 +66,27 @@ imap <D-6> <ESC>6gt
 imap <D-7> <ESC>7gt
 imap <D-8> <ESC>8gt
 imap <D-9> <ESC>9gt
+nmap <D-1> 1gt
+nmap <D-2> 2gt
+nmap <D-3> 3gt
+nmap <D-4> 4gt
+nmap <D-5> 5gt
+nmap <D-6> 6gt
+nmap <D-7> 7gt
+nmap <D-8> 8gt
+nmap <D-9> 9gt
 
 " NERDTree
 imap <D-d> <ESC>:NERDTreeToggle<CR>i
 map <D-d> :NERDTreeToggle<CR>
 map <leader>d :NERDTreeToggle<CR>
 
-" Tlist
-map <D-l> :TlistToggle<CR>
-map <leader>l :TlistToggle<CR>
-
 map <leader>v :tabedit $MYVIMRC<CR>
 let mapleader = '\'
+
+" CtrlP
+map <leader>p  :CtrlP<CR>
+" let g:ctrlp_regexp = 1
 
 " Source the vimrc file after saving it
 if has("autocmd")
@@ -106,6 +110,7 @@ set smartindent
 set guifont=Monaco:h14 " change the font in the GUI
 set guioptions-=T " Get rid of the annoying toolbar
 set diffopt+=iwhite " Ignore whitespace when diffing
+set textwidth=0
 
 syntax on " syntax highlighting on
 
@@ -113,7 +118,7 @@ syntax on " syntax highlighting on
 ab teh the
 
 
-" Source files
+" Source files. Refactor this.
 source $VIMRUNTIME/vimrc_example.vim
 
 if filereadable($HOME . '/.host_vimrc')
