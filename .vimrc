@@ -1,4 +1,4 @@
-filetype off " required!
+filetype off " required! (for Bundler?)
 
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
@@ -12,13 +12,14 @@ Bundle 'mileszs/ack.vim'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'tpope/vim-endwise'
 Bundle 'pangloss/vim-javascript'
-Bundle 'briancollins/vim-jst'
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-rails.git'
 Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'tpope/vim-cucumber'
 Bundle 'godlygeek/tabular'
+
+" is this the same as tabular?
 Bundle 'Raimondi/delimitMate'
 Bundle 'jc00ke/thor.vim'
 Bundle 'tsaleh/vim-matchit'
@@ -26,6 +27,9 @@ Bundle 'AndrewRadev/linediff.vim'
 Bundle 'majutsushi/tagbar'
 Bundle 'tpope/vim-surround'
 Bundle 'kien/ctrlp.vim'
+
+" What is this?
+Bundle 'briancollins/vim-jst'
 " Bundle 'Lokaltog/vim-easymotion'
 " Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
 
@@ -86,6 +90,11 @@ let mapleader = '\'
 
 " CtrlP
 map <leader>p  :CtrlP<CR>
+"let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
+let g:ctrlp_custom_ignore = '\vcoverage\/'
+"let g:ctrlp_custom_ignore = {
+"  \ 'dir':  '\v^coverage\/',
+"  \ }
 " let g:ctrlp_regexp = 1
 
 " Source the vimrc file after saving it
@@ -103,7 +112,7 @@ set exrc " enable per-directory .vimrc files
 set nocompatible
 set number	" Show numbers on left
 set lbr!	" Wrap lines at word
-set clipboard+=unnamed	" Share Windows clipboard
+set clipboard+=unnamed	" Share system clipboard. Does this work?
 set showmatch " show matching brackets
 set autoindent
 set smartindent
@@ -116,7 +125,6 @@ syntax on " syntax highlighting on
 
 " Automatically fix a misspelling
 ab teh the
-
 
 " Source files. Refactor this.
 source $VIMRUNTIME/vimrc_example.vim
