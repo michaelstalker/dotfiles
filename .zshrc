@@ -14,9 +14,6 @@ ZSH_THEME="robbyrussell"
 # Shell
 alias la='ls -la'
 
-# Testing
-alias cuke='bundle exec cucumber'
-
 # Rake
 alias rake='noglob rake'
 
@@ -30,6 +27,7 @@ alias ga.='git add .'
 alias gp='git push'
 alias gpo='git push origin'
 alias gpl='git pull'
+alias gpr='git pull --rebase'
 alias gc='git commit'
 alias gb='git branch'
 alias gm='git merge'
@@ -51,15 +49,19 @@ alias gco='git checkout'
 # Uncomment following line if you want red dots to be displayed while waiting for completion
 # COMPLETION_WAITING_DOTS="true"
 
+# JavaScript
+alias bower='noglob bower'
+
 # Set environment variables
 export EDITOR=vim
 export BUNDLER_EDITOR=mvim
-export PATH=$HOME/pear/bin:/Applications/Utilities/larceny-0.97-bin-native-ia32-macosx:/Applications/Utilities:$HOME/.rvm/gems/ruby-1.9.2-p290/bin:$HOME/.rvm/gems/ruby-1.9.2-p290@global/bin:$HOME/.rvm/rubies/ruby-1.9.2-p290/bin:$HOME/.rvm/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/sbin:/usr/X11/bin:/usr/local/git/bin
+export PATH=$HOME/pear/bin:/Applications/Utilities/larceny-0.97-bin-native-ia32-macosx:/Applications/Utilities:$HOME/.rvm/gems/ruby-1.9.2-p290/bin:$HOME/.rvm/gems/ruby-1.9.2-p290@global/bin:$HOME/.rvm/rubies/ruby-1.9.2-p290/bin:$HOME/.rvm/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/sbin:/usr/X11/bin:/usr/local/git/bin:/usr/local/bin/ctags:$DYLD_LIBRARY_PATH
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(bundler rails rails3 rvm git)
+# plugins=(bundler rails rails3 rvm git)
+plugins=(rails rails3 rvm git)
 
 # Source files
 source $ZSH/oh-my-zsh.sh
@@ -72,3 +74,6 @@ fi
 
 # Turn off auto-correction
 unsetopt correct_all
+
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
