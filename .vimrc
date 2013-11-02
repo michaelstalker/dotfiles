@@ -18,6 +18,7 @@ Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'tpope/vim-cucumber'
 Bundle 'godlygeek/tabular'
+Bundle 'elixir-lang/vim-elixir'
 
 " is this the same as tabular?
 Bundle 'Raimondi/delimitMate'
@@ -89,7 +90,8 @@ map <leader>v :tabedit $MYVIMRC<CR>
 let mapleader = '\'
 
 " CtrlP
-map <leader>p  :CtrlP<CR>
+map <leader>t :CtrlP<CR>
+map <C-t> :CtrlP<CR>
 "let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
 let g:ctrlp_custom_ignore = '\vcoverage\/'
 "let g:ctrlp_custom_ignore = {
