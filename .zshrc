@@ -51,6 +51,9 @@ alias gco='git checkout'
 # Uncomment following line if you want red dots to be displayed while waiting for completion
 # COMPLETION_WAITING_DOTS="true"
 
+# chruby
+source /usr/local/opt/chruby/share/chruby/auto.sh
+
 # Set environment variables
 export EDITOR=vim
 export BUNDLER_EDITOR=mvim
