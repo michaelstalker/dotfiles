@@ -50,7 +50,9 @@ alias gco='git checkout'
 # COMPLETION_WAITING_DOTS="true"
 
 # chruby
-source /usr/local/opt/chruby/share/chruby/auto.sh
+source /usr/local/share/chruby/auto.sh
+source /usr/local/share/chruby/chruby.sh
+
 
 # JavaScript
 alias bower='noglob bower'
