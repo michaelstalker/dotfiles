@@ -1,3 +1,4 @@
+filetype on " Do this before `filetype off` or we'll get an exit code of 1
 filetype off " required! (for Bundler?)
 
 set rtp+=~/.vim/bundle/vundle/
