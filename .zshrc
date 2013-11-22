@@ -16,9 +16,13 @@ alias la='ls -la'
 
 # Rake
 alias rake='noglob rake'
+alias rr='rake routes'
+alias rrg='rake routes | grep'
 
 # Git
 alias gs='git status'
+alias gsh='git stash'
+alias gsp='git stash pop'
 alias gd='git diff'
 alias gdc='git diff --cached'
 alias gdw='git diff --word-diff'
@@ -29,8 +33,10 @@ alias gpo='git push origin'
 alias gpl='git pull'
 alias gpr='git pull --rebase'
 alias gc='git commit'
+alias gca='git commit --amend'
 alias gb='git branch'
 alias gm='git merge'
+alias gmt='git mergetool'
 alias grb='git rebase'
 alias gco='git checkout'
 

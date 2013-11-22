@@ -29,6 +29,7 @@ Bundle 'AndrewRadev/linediff.vim'
 Bundle 'majutsushi/tagbar'
 Bundle 'tpope/vim-surround'
 Bundle 'kien/ctrlp.vim'
+Bundle 'rking/ag.vim'
 
 " What is this?
 Bundle 'briancollins/vim-jst'
