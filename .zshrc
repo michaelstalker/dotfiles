@@ -7,12 +7,9 @@ ZSH=$HOME/.oh-my-zsh
 # time that oh-my-zsh is loaded.
 ZSH_THEME="robbyrussell"
 
-# Example aliases
-# alias zshconfig="vim ~/.zshrc"
-# alias ohmyzsh="vim ~/.oh-my-zsh"
-
 # Shell
 alias la='ls -la'
+alias psruby='ps -ef | grep ruby'
 
 # Rake
 alias rake='noglob rake'
@@ -39,6 +36,8 @@ alias gm='git merge'
 alias gmt='git mergetool'
 alias grb='git rebase'
 alias gco='git checkout'
+alias gcn='git clean -n'
+alias gcf='git clean -f'
 
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
@@ -55,24 +54,18 @@ alias gco='git checkout'
 # Uncomment following line if you want red dots to be displayed while waiting for completion
 # COMPLETION_WAITING_DOTS="true"
 
-# chruby
-source /usr/local/share/chruby/auto.sh
-source /usr/local/share/chruby/chruby.sh
-
-
 # JavaScript
 alias bower='noglob bower'
 
 # Set environment variables
 export EDITOR=vim
 export BUNDLER_EDITOR=mvim
-export PATH=$HOME/pear/bin:/Applications/Utilities/larceny-0.97-bin-native-ia32-macosx:/Applications/Utilities:$HOME/.rvm/gems/ruby-1.9.2-p290/bin:$HOME/.rvm/gems/ruby-1.9.2-p290@global/bin:$HOME/.rvm/rubies/ruby-1.9.2-p290/bin:$HOME/.rvm/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/sbin:/usr/X11/bin:/usr/local/git/bin:/usr/local/bin/ctags:$DYLD_LIBRARY_PATH
+export PATH=$HOME/pear/bin:/Applications/Utilities/larceny-0.97-bin-native-ia32-macosx:/Applications/Utilities:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/sbin:/usr/X11/bin:/usr/local/git/bin:/usr/local/bin/ctags:$DYLD_LIBRARY_PATH
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-# plugins=(bundler rails rails3 rvm git)
-plugins=(rails rails3 rvm git)
+plugins=(rails rvm git)
 
 # Source files
 source $ZSH/oh-my-zsh.sh
