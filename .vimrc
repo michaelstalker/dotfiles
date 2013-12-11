@@ -4,12 +4,10 @@ filetype off " required! (for Bundler?)
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
-" let Vundle manage Vundle
-" required!
+" let Vundle manage Vundle. Required!
 Bundle 'gmarik/vundle'
 
 " GitHub bundles
-Bundle 'mileszs/ack.vim'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'tpope/vim-endwise'
 Bundle 'pangloss/vim-javascript'
@@ -20,6 +18,7 @@ Bundle 'scrooloose/nerdcommenter'
 Bundle 'tpope/vim-cucumber'
 Bundle 'godlygeek/tabular'
 Bundle 'elixir-lang/vim-elixir'
+Bundle 'terryma/vim-multiple-cursors'
 
 " is this the same as tabular?
 Bundle 'Raimondi/delimitMate'
@@ -31,8 +30,6 @@ Bundle 'tpope/vim-surround'
 Bundle 'kien/ctrlp.vim'
 Bundle 'rking/ag.vim'
 
-" What is this?
-Bundle 'briancollins/vim-jst'
 " Bundle 'Lokaltog/vim-easymotion'
 " Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
 
@@ -40,6 +37,7 @@ Bundle 'briancollins/vim-jst'
 Bundle 'ruby-matchit'
 Bundle 'vimwiki'
 Bundle 'AnsiEsc.vim'
+Bundle 'xmledit'
 " Bundle 'L9'
 " Bundle 'FuzzyFinder'
 
@@ -85,8 +83,8 @@ nmap <D-9> 9gt
 
 " NERDTree
 imap <D-d> <ESC>:NERDTreeToggle<CR>i
-map <D-d> :NERDTreeToggle<CR>
-map <leader>d :NERDTreeToggle<CR>
+map <D-d> :NERDTreeToggle<CR>:set rnu<CR>
+map <leader>d :NERDTreeToggle<CR>:set rnu<CR>
 
 map <leader>v :tabedit $MYVIMRC<CR>
 let mapleader = '\'
@@ -101,9 +99,16 @@ let g:ctrlp_custom_ignore = '\vcoverage\/'
 "  \ }
 " let g:ctrlp_regexp = 1
 
-" Source the vimrc file after saving it
+fun! <SID>StripTrailingWhitespaces()
+    let line = line(".")
+    let column = col(".")
+    %s/\s\+$//e
+    call cursor(line, column)
+endfun
+
 if has("autocmd")
-  autocmd BufWritePost .vimrc source $MYVIMRC
+  "Strip trailing whitespace when saving"
+  autocmd BufWritePre *.rb,*.erb,*.coffee,*.js,*.css,*.scss,*.html :call <SID>StripTrailingWhitespaces()
 endif
 
 if has("gui_running")
@@ -114,9 +119,8 @@ endif
 set softtabstop=2 shiftwidth=2 expandtab
 set exrc " enable per-directory .vimrc files
 set nocompatible
-set number	" Show numbers on left
-set lbr!	" Wrap lines at word
-set clipboard+=unnamed	" Share system clipboard. Does this work?
+set lbr! " Wrap lines at word
+set clipboard+=unnamed " Share system clipboard. Does this work?
 set showmatch " show matching brackets
 set autoindent
 set smartindent
@@ -124,6 +128,7 @@ set guifont=Monaco:h14 " change the font in the GUI
 set guioptions-=T " Get rid of the annoying toolbar
 set diffopt+=iwhite " Ignore whitespace when diffing
 set textwidth=0
+set relativenumber
 
 syntax on " syntax highlighting on
 
