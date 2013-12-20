@@ -90,10 +90,8 @@ map <leader>v :tabedit $MYVIMRC<CR>
 let mapleader = '\'
 
 " CtrlP
-map <leader>t :CtrlP<CR>
-map <C-t> :CtrlP<CR>
-"let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
 let g:ctrlp_custom_ignore = '\vcoverage\/'
+"let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
 "let g:ctrlp_custom_ignore = {
 "  \ 'dir':  '\v^coverage\/',
 "  \ }
