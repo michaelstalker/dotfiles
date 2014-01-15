@@ -12,10 +12,12 @@ ZSH_THEME="robbyrussell"
 alias rake='noglob rake'
 alias rr='rake routes'
 alias rrg='rake routes | grep'
+alias rtg='rake -T | grep'
 
 # Misc
 alias b='bundle'
-alias v='mvim'
+alias v='vim'
+alias psr='ps -ef | grep ruby'
 
 # Git
 alias gs='git status'
@@ -23,10 +25,7 @@ alias gsh='git stash'
 alias gsp='git stash pop'
 alias gd='git diff'
 alias gdc='git diff --cached'
-alias ga='git add'
 alias ga.='git add --all .'
-alias gp='git push'
-alias gpl='git pull'
 alias gpr='git pull --rebase'
 alias gc='git commit'
 alias gca='git commit --amend'
@@ -76,4 +75,4 @@ export PATH="/usr/local/heroku/bin:$PATH"
 # Set environment variables
 export EDITOR=vim
 export BUNDLER_EDITOR=mvim
-export PATH=$HOME/pear/bin:/Applications/Utilities/larceny-0.97-bin-native-ia32-macosx:/Applications/Utilities:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/sbin:/usr/X11/bin:/usr/local/git/bin:/usr/local/bin/ctags:$PATH
+export PATH=/Applications/Utilities/larceny-0.97-bin-native-ia32-macosx:/Applications/Utilities:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/sbin:/usr/X11/bin:/usr/local/git/bin:/usr/local/bin/ctags:$PATH

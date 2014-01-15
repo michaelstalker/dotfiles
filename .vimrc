@@ -7,45 +7,39 @@ call vundle#rc()
 " let Vundle manage Vundle. Required!
 Bundle 'gmarik/vundle'
 
-" GitHub bundles
+" Language, framework, and tool support
 Bundle 'kchmck/vim-coffee-script'
-Bundle 'tpope/vim-endwise'
 Bundle 'pangloss/vim-javascript'
-Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-rails.git'
+Bundle 'tpope/vim-cucumber'
+Bundle 'elixir-lang/vim-elixir'
+Bundle 'jc00ke/thor.vim'
+Bundle 'scrooloose/syntastic'
+
+" Miscellaneous bundles
+Bundle 'tpope/vim-endwise'
+Bundle 'tpope/vim-fugitive'
 Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/nerdcommenter'
-Bundle 'tpope/vim-cucumber'
-Bundle 'godlygeek/tabular'
-Bundle 'elixir-lang/vim-elixir'
 Bundle 'terryma/vim-multiple-cursors'
-
-" is this the same as tabular?
-Bundle 'Raimondi/delimitMate'
-Bundle 'jc00ke/thor.vim'
-Bundle 'tsaleh/vim-matchit'
 Bundle 'AndrewRadev/linediff.vim'
 Bundle 'majutsushi/tagbar'
 Bundle 'tpope/vim-surround'
 Bundle 'kien/ctrlp.vim'
 Bundle 'rking/ag.vim'
-
-" Bundle 'Lokaltog/vim-easymotion'
-" Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
-
-" vim-scripts repos
+Bundle 'tsaleh/vim-matchit'
 Bundle 'ruby-matchit'
 Bundle 'vimwiki'
 Bundle 'AnsiEsc.vim'
 Bundle 'xmledit'
-" Bundle 'L9'
-" Bundle 'FuzzyFinder'
 
 filetype plugin indent on " required!
 
 colorscheme newdesert
 
 imap kk <Esc>
+imap kj <Esc>
+imap jk <Esc>
 map <Space> :
 
 " Traversing windows
@@ -59,7 +53,7 @@ map <C-h> <C-W>h
 map <C-l> <C-W>l
 
 " Tagbar
-map <D-t> :TagbarToggle<CR>
+map <leader>t :TagbarToggle<CR>
 
 " Traversing tabs
 imap <D-1> <ESC>1gt
@@ -106,7 +100,7 @@ endfun
 
 if has("autocmd")
   "Strip trailing whitespace when saving"
-  autocmd BufWritePre *.rb,*.erb,*.coffee,*.js,*.css,*.scss,*.html :call <SID>StripTrailingWhitespaces()
+  autocmd BufWritePre *.rb,*.erb,*.coffee,*.js,*.css,*.scss,*.html,*.rhtml :call <SID>StripTrailingWhitespaces()
 endif
 
 if has("gui_running")
