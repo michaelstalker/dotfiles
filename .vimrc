@@ -100,7 +100,7 @@ endfun
 
 if has("autocmd")
   "Strip trailing whitespace when saving"
-  autocmd BufWritePre *.rb,*.erb,*.coffee,*.js,*.css,*.scss,*.html,*.rhtml :call <SID>StripTrailingWhitespaces()
+  autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
 endif
 
 if has("gui_running")
