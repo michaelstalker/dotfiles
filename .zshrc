@@ -13,6 +13,7 @@ alias rake='noglob rake'
 alias rr='rake routes'
 alias rrg='rake routes | grep'
 alias rtg='rake -T | grep'
+alias rdbm='rake db:migrate db:test:clone'
 
 # Misc
 alias b='bundle'
