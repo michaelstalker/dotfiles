@@ -1,1 +1,2 @@
-gem: --no-document
+# --no-rdoc and --no-ri are deprecated. Remove them at some point.
+gem: --no-document --no-rdoc --no-ri

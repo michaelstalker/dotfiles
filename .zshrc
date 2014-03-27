@@ -77,3 +77,5 @@ export PATH="/usr/local/heroku/bin:$PATH"
 export EDITOR=vim
 export BUNDLER_EDITOR=mvim
 export PATH=/Applications/Utilities/larceny-0.97-bin-native-ia32-macosx:/Applications/Utilities:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/sbin:/usr/X11/bin:/usr/local/git/bin:/usr/local/bin/ctags:$PATH
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting

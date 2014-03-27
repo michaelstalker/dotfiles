@@ -112,7 +112,7 @@ set softtabstop=2 shiftwidth=2 expandtab
 set exrc " enable per-directory .vimrc files
 set nocompatible
 set lbr! " Wrap lines at word
-set clipboard+=unnamed " Share system clipboard. Does this work?
+set clipboard+=unnamed " Share system clipboard.
 set showmatch " show matching brackets
 set autoindent
 set smartindent
