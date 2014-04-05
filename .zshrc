@@ -7,7 +7,6 @@ ZSH=$HOME/.oh-my-zsh
 # time that oh-my-zsh is loaded.
 ZSH_THEME="robbyrussell"
 
-
 # Rake
 alias rake='noglob rake'
 alias rr='rake routes'
@@ -56,16 +55,14 @@ alias bower='noglob bower'
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(rails rvm git)
+plugins=(rails git bundler)
 
 # Source files
 source $ZSH/oh-my-zsh.sh
- 
+
 if [ -f ~/.host_zshrc ]; then
   source ~/.host_zshrc
 fi
-
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" # Load RVM function
 
 # Turn off auto-correction
 unsetopt correct_all
@@ -75,7 +72,8 @@ export PATH="/usr/local/heroku/bin:$PATH"
 #
 # Set environment variables
 export EDITOR=vim
-export BUNDLER_EDITOR=mvim
+export BUNDLER_EDITOR=vim
 export PATH=/Applications/Utilities/larceny-0.97-bin-native-ia32-macosx:/Applications/Utilities:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/sbin:/usr/X11/bin:/usr/local/git/bin:/usr/local/bin/ctags:$PATH
 
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+# rbenv
+eval "$(rbenv init -)"

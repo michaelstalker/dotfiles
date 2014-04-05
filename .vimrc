@@ -135,3 +135,4 @@ if filereadable($HOME . '/.host_vimrc')
 endif
 
 set nobackup " keep gVim from leaving ~ backup files
+set noundofile " this should have been off by default...
