@@ -34,6 +34,17 @@ Bundle 'AnsiEsc.vim'
 Bundle 'xmledit'
 Bundle 'nathanaelkane/vim-indent-guides'
 
+" Color schemes
+Bundle 'Lokaltog/vim-distinguished'
+Bundle 'nanotech/jellybeans.vim'
+Bundle 'jpo/vim-railscasts-theme'
+Bundle 'tpope/vim-vividchalk'
+Bundle 'tomasr/molokai'
+Bundle 'matthewtodd/vim-twilight'
+Bundle 'wesgibbs/vim-irblack'
+Bundle 'guardian'
+Bundle 'brafales/vim-desert256'
+
 call vundle#end() " required by Vundle
 filetype plugin indent on " required by Vundle
 
