@@ -1,39 +1,41 @@
-filetype on " Do this before `filetype off` or we'll get an exit code of 1
-filetype off " required! (for Bundler?)
+filetype off " required for Vundle
 
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
 " let Vundle manage Vundle. Required!
-Bundle 'gmarik/vundle'
+Bundle 'gmarik/Vundle.vim'
 
 " Language, framework, and tool support
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'pangloss/vim-javascript'
-Bundle 'tpope/vim-rails.git'
+Bundle 'tpope/vim-rails'
 Bundle 'tpope/vim-cucumber'
 Bundle 'elixir-lang/vim-elixir'
 Bundle 'jc00ke/thor.vim'
 Bundle 'scrooloose/syntastic'
+Bundle 'slim-template/vim-slim'
 
 " Miscellaneous bundles
 Bundle 'tpope/vim-endwise'
 Bundle 'tpope/vim-fugitive'
 Bundle 'scrooloose/nerdtree'
-Bundle 'scrooloose/nerdcommenter'
+Bundle 'tpope/vim-commentary'
 Bundle 'terryma/vim-multiple-cursors'
 Bundle 'AndrewRadev/linediff.vim'
 Bundle 'majutsushi/tagbar'
 Bundle 'tpope/vim-surround'
 Bundle 'kien/ctrlp.vim'
 Bundle 'rking/ag.vim'
-Bundle 'tsaleh/vim-matchit'
+Bundle 'tmhedberg/matchit'
 Bundle 'ruby-matchit'
 Bundle 'vimwiki'
 Bundle 'AnsiEsc.vim'
 Bundle 'xmledit'
+Bundle 'nathanaelkane/vim-indent-guides'
 
-filetype plugin indent on " required!
+call vundle#end() " required by Vundle
+filetype plugin indent on " required by Vundle
 
 colorscheme newdesert
 
