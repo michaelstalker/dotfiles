@@ -48,7 +48,7 @@ Bundle 'brafales/vim-desert256'
 call vundle#end() " required by Vundle
 filetype plugin indent on " required by Vundle
 
-colorscheme newdesert
+colorscheme jellybeans
 
 imap kk <Esc>
 imap kj <Esc>
@@ -93,6 +93,10 @@ imap <D-d> <ESC>:NERDTreeToggle<CR>i
 map <D-d> :NERDTreeToggle<CR>:set rnu<CR>
 map <leader>d :NERDTreeToggle<CR>:set rnu<CR>
 
+map <leader>n :set nornu number<CR>
+map <leader>r :set rnu nonumber<CR>
+map <leader>= <C-w>=
+map <leader>b :Gblame<CR>
 map <leader>v :tabedit $MYVIMRC<CR>
 let mapleader = '\'
 
