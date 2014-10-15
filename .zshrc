@@ -35,6 +35,7 @@ alias grb='git rebase'
 alias gs='git status'
 alias gsh='git stash'
 alias gsp='git stash pop'
+alias wip='gc --no-verify -m "WIP"'
 
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
@@ -61,10 +62,7 @@ plugins=(rails git bundler)
 
 # Source files
 source $ZSH/oh-my-zsh.sh
-
-if [ -f ~/.host_zshrc ]; then
-  source ~/.host_zshrc
-fi
+source ~/.bin/tmuxinator.zsh
 
 # Turn off auto-correction
 unsetopt correct_all
@@ -91,3 +89,7 @@ export PATH=$HOME/.rbenv/bin:$PATH
 
 # rbenv
 eval "$(rbenv init -)"
+
+if [ -f ~/.host_zshrc ]; then
+  source ~/.host_zshrc
+fi

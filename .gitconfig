@@ -5,7 +5,7 @@
   branch = auto
   diff = auto
   status = auto
-	ui = true
+  ui = true
 [color "branch"]
   current = yellow reverse
   local = yellow
@@ -29,8 +29,10 @@
 [difftool]
   prompt = false
 [push]
-	default = current
+  default = current
 [alias]
   nicelog = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 [rerere]
-	enabled = 1
+  enabled = 1
+[credential]
+	helper = osxkeychain

@@ -10,11 +10,11 @@ Bundle 'gmarik/Vundle.vim'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'pangloss/vim-javascript'
 Bundle 'tpope/vim-rails'
-Bundle 'tpope/vim-cucumber'
 Bundle 'elixir-lang/vim-elixir'
 Bundle 'jc00ke/thor.vim'
 Bundle 'scrooloose/syntastic'
 Bundle 'slim-template/vim-slim'
+Bundle 'tpope/vim-fireplace'
 
 " Miscellaneous bundles
 Bundle 'tpope/vim-endwise'
@@ -33,6 +33,12 @@ Bundle 'vimwiki'
 Bundle 'AnsiEsc.vim'
 Bundle 'xmledit'
 Bundle 'nathanaelkane/vim-indent-guides'
+
+" Snippets
+Bundle 'MarcWeber/vim-addon-mw-utils'
+Bundle 'tomtom/tlib_vim'
+Bundle 'garbas/vim-snipmate'
+Bundle 'honza/vim-snippets'
 
 " Color schemes
 Bundle 'Lokaltog/vim-distinguished'
@@ -102,6 +108,13 @@ let mapleader = '\'
 
 " CtrlP
 let g:ctrlp_custom_ignore = '\vcoverage\/'
+
+" The Silver Searcher
+if executable('ag')
+  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+  " let g:ctrlp_use_caching = 0 " ag is fast; we don't need to cache
+endif
+
 "let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
 "let g:ctrlp_custom_ignore = {
 "  \ 'dir':  '\v^coverage\/',
@@ -138,6 +151,9 @@ set guioptions-=T " Get rid of the annoying toolbar
 set diffopt+=iwhite " Ignore whitespace when diffing
 set textwidth=0
 set relativenumber
+set backupdir=~/tmp
+set directory=~/tmp
+set noundofile " this should have been off by default...
 
 syntax on " syntax highlighting on
 
@@ -150,6 +166,3 @@ source $VIMRUNTIME/vimrc_example.vim
 if filereadable($HOME . '/.host_vimrc')
   source $HOME/.host_vimrc " Keep computer-specific Vim commands here
 endif
-
-set nobackup " keep gVim from leaving ~ backup files
-set noundofile " this should have been off by default...
