@@ -20,7 +20,7 @@ alias v='vim'
 alias psr='ps -ef | grep ruby'
 
 # Git
-alias ga.='git add --all .'
+alias ga.='git add .'
 alias gb='git branch'
 alias gbm='git branch --merged'
 alias gc='git commit'
@@ -58,11 +58,10 @@ alias bower='noglob bower'
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(rails git bundler)
+plugins=(rails git bundler tmuxinator)
 
 # Source files
 source $ZSH/oh-my-zsh.sh
-source ~/.bin/tmuxinator.zsh
 
 # Turn off auto-correction
 unsetopt correct_all

@@ -35,4 +35,4 @@
 [rerere]
   enabled = 1
 [credential]
-	helper = osxkeychain
+  helper = osxkeychain

@@ -11,10 +11,15 @@ Bundle 'kchmck/vim-coffee-script'
 Bundle 'pangloss/vim-javascript'
 Bundle 'tpope/vim-rails'
 Bundle 'elixir-lang/vim-elixir'
-Bundle 'jc00ke/thor.vim'
 Bundle 'scrooloose/syntastic'
 Bundle 'slim-template/vim-slim'
+Bundle 'tpope/vim-leiningen'
+Bundle 'tpope/vim-projectionist'
+Bundle 'tpope/vim-dispatch'
 Bundle 'tpope/vim-fireplace'
+Bundle 'tpope/vim-repeat'
+Bundle 'guns/vim-clojure-highlight'
+Bundle 'guns/vim-clojure-static'
 
 " Miscellaneous bundles
 Bundle 'tpope/vim-endwise'
@@ -33,6 +38,8 @@ Bundle 'vimwiki'
 Bundle 'AnsiEsc.vim'
 Bundle 'xmledit'
 Bundle 'nathanaelkane/vim-indent-guides'
+Bundle 'amdt/vim-niji.git'
+Bundle 'paredit.vim'
 
 " Snippets
 Bundle 'MarcWeber/vim-addon-mw-utils'
@@ -54,6 +61,7 @@ Bundle 'brafales/vim-desert256'
 call vundle#end() " required by Vundle
 filetype plugin indent on " required by Vundle
 
+let mapleader = ','
 colorscheme jellybeans
 
 imap kk <Esc>
@@ -104,7 +112,8 @@ map <leader>r :set rnu nonumber<CR>
 map <leader>= <C-w>=
 map <leader>b :Gblame<CR>
 map <leader>v :tabedit $MYVIMRC<CR>
-let mapleader = '\'
+map <leader>e :%Eval<CR>
+map <leader>c :Connect<CR>
 
 " CtrlP
 let g:ctrlp_custom_ignore = '\vcoverage\/'
@@ -112,7 +121,7 @@ let g:ctrlp_custom_ignore = '\vcoverage\/'
 " The Silver Searcher
 if executable('ag')
   let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
-  " let g:ctrlp_use_caching = 0 " ag is fast; we don't need to cache
+  let g:ctrlp_use_caching = 0 " ag is fast; we don't need to cache
 endif
 
 "let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
@@ -153,6 +162,7 @@ set textwidth=0
 set relativenumber
 set backupdir=~/tmp
 set directory=~/tmp
+set undodir=~/tmp
 set noundofile " this should have been off by default...
 
 syntax on " syntax highlighting on
