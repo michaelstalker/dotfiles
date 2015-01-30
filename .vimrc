@@ -20,6 +20,7 @@ Bundle 'tpope/vim-fireplace'
 Bundle 'tpope/vim-repeat'
 Bundle 'guns/vim-clojure-highlight'
 Bundle 'guns/vim-clojure-static'
+Bundle 'sjl/tslime.vim'
 
 " Miscellaneous bundles
 Bundle 'tpope/vim-endwise'
@@ -34,7 +35,6 @@ Bundle 'kien/ctrlp.vim'
 Bundle 'rking/ag.vim'
 Bundle 'tmhedberg/matchit'
 Bundle 'ruby-matchit'
-Bundle 'vimwiki'
 Bundle 'AnsiEsc.vim'
 Bundle 'xmledit'
 Bundle 'nathanaelkane/vim-indent-guides'
@@ -74,10 +74,6 @@ map <Down> <C-W>j
 map <Up> <C-W>k
 map <Right> <C-W>l
 map <Left> <C-W>h
-map <C-j> <C-W>j
-map <C-k> <C-W>k
-map <C-h> <C-W>h
-map <C-l> <C-W>l
 
 " Tagbar
 map <leader>t :TagbarToggle<CR>
@@ -162,7 +158,7 @@ set textwidth=0
 set relativenumber
 set backupdir=~/tmp
 set directory=~/tmp
-set undodir=~/tmp
+set nowritebackup
 set noundofile " this should have been off by default...
 
 syntax on " syntax highlighting on
