@@ -108,6 +108,10 @@ map <leader>r :set rnu nonumber<CR>
 map <leader>= <C-w>=
 map <leader>b :Gblame<CR>
 map <leader>v :tabedit $MYVIMRC<CR>
+
+map <leader>s :Ag <C-R><C-W><CR>
+
+" Fireplace
 map <leader>e :%Eval<CR>
 map <leader>c :Connect<CR>
 
@@ -158,6 +162,7 @@ set textwidth=0
 set relativenumber
 set backupdir=~/tmp
 set directory=~/tmp
+set undodir=~/tmp
 set nowritebackup
 set noundofile " this should have been off by default...
 

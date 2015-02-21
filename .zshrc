@@ -28,6 +28,7 @@ alias gca='git commit --amend'
 alias gcf='git clean -f'
 alias gcn='git clean -n'
 alias gco='git checkout'
+alias gcod='git checkout dev'
 alias gd='git diff'
 alias gdc='git diff --cached'
 alias glr='git pull --rebase'
@@ -84,10 +85,13 @@ export PATH=/usr/local/share/npm/bin:$PATH
 export PATH=/usr/local/git/bin:$PATH
 export PATH=/usr/local/bin/ctags:$PATH
 export PATH=/usr/X11/bin:$PATH
-export PATH=$HOME/.rbenv/bin:$PATH
+# export PATH=$HOME/.rbenv/bin:$PATH
+
+source /usr/local/share/chruby/chruby.sh
+source /usr/local/share/chruby/auto.sh
 
 # rbenv
-eval "$(rbenv init -)"
+# eval "$(rbenv init -)"
 
 if [ -f ~/.host_zshrc ]; then
   source ~/.host_zshrc

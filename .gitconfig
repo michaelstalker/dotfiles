@@ -36,3 +36,5 @@
 	enabled = 1
 [credential]
   helper = osxkeychain
+[branch]
+	autosetuprebase = always
