@@ -1,56 +1,87 @@
-filetype on " Do this before `filetype off` or we'll get an exit code of 1
-filetype off " required! (for Bundler?)
+filetype off " required for Vundle
 
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
 " let Vundle manage Vundle. Required!
-Bundle 'gmarik/vundle'
+Bundle 'gmarik/Vundle.vim'
 
 " Language, framework, and tool support
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'pangloss/vim-javascript'
-Bundle 'tpope/vim-rails.git'
-Bundle 'tpope/vim-cucumber'
+Bundle 'tpope/vim-rails'
 Bundle 'elixir-lang/vim-elixir'
-Bundle 'jc00ke/thor.vim'
+Bundle 'wlangstroth/vim-racket'
 Bundle 'scrooloose/syntastic'
+Bundle 'slim-template/vim-slim'
+Bundle 'tpope/vim-leiningen'
+Bundle 'tpope/vim-projectionist'
+Bundle 'tpope/vim-dispatch'
+Bundle 'tpope/vim-fireplace'
+Bundle 'tpope/vim-repeat'
+Bundle 'guns/vim-clojure-highlight'
+Bundle 'guns/vim-clojure-static'
+Bundle 'sjl/tslime.vim'
 
 " Miscellaneous bundles
 Bundle 'tpope/vim-endwise'
 Bundle 'tpope/vim-fugitive'
 Bundle 'scrooloose/nerdtree'
-Bundle 'scrooloose/nerdcommenter'
+Bundle 'tpope/vim-commentary'
 Bundle 'terryma/vim-multiple-cursors'
 Bundle 'AndrewRadev/linediff.vim'
 Bundle 'majutsushi/tagbar'
 Bundle 'tpope/vim-surround'
 Bundle 'kien/ctrlp.vim'
 Bundle 'rking/ag.vim'
-Bundle 'tsaleh/vim-matchit'
+Bundle 'tmhedberg/matchit'
 Bundle 'ruby-matchit'
-Bundle 'vimwiki'
 Bundle 'AnsiEsc.vim'
 Bundle 'xmledit'
+Bundle 'nathanaelkane/vim-indent-guides'
+Bundle 'amdt/vim-niji.git'
+Bundle 'paredit.vim'
 
-filetype plugin indent on " required!
+" Snippets
+Bundle 'MarcWeber/vim-addon-mw-utils'
+Bundle 'tomtom/tlib_vim'
+Bundle 'garbas/vim-snipmate'
+Bundle 'honza/vim-snippets'
 
-colorscheme newdesert
+" Color schemes
+Bundle 'Lokaltog/vim-distinguished'
+Bundle 'nanotech/jellybeans.vim'
+Bundle 'jpo/vim-railscasts-theme'
+Bundle 'tpope/vim-vividchalk'
+Bundle 'tomasr/molokai'
+Bundle 'matthewtodd/vim-twilight'
+Bundle 'wesgibbs/vim-irblack'
+Bundle 'guardian'
+Bundle 'brafales/vim-desert256'
+
+call vundle#end() " required by Vundle
+filetype plugin indent on " required by Vundle
+
+let mapleader = ','
+colorscheme jellybeans
 
 imap kk <Esc>
 imap kj <Esc>
 imap jk <Esc>
 map <Space> :
 
+"" Windows
 " Traversing windows
 map <Down> <C-W>j
 map <Up> <C-W>k
 map <Right> <C-W>l
 map <Left> <C-W>h
-map <C-j> <C-W>j
-map <C-k> <C-W>k
-map <C-h> <C-W>h
-map <C-l> <C-W>l
+
+" Resizing panes
+map <C-l> :30winc ><CR>
+map <C-h> :30winc <<CR>
+map <C-j> :20winc +<CR>
+map <C-k> :20winc -<CR>
 
 " Tagbar
 map <leader>t :TagbarToggle<CR>
@@ -76,15 +107,30 @@ nmap <D-8> 8gt
 nmap <D-9> 9gt
 
 " NERDTree
-imap <D-d> <ESC>:NERDTreeToggle<CR>i
-map <D-d> :NERDTreeToggle<CR>:set rnu<CR>
 map <leader>d :NERDTreeToggle<CR>:set rnu<CR>
+map <leader>f :NERDTreeFind<CR>:set rnu<CR>
 
+map <leader>n :set nornu number<CR>
+map <leader>r :set rnu nonumber<CR>
+map <leader>= <C-w>=
+map <leader>b :Gblame<CR>
 map <leader>v :tabedit $MYVIMRC<CR>
-let mapleader = '\'
+
+map <leader>s :Ag <C-R><C-W><CR>
+
+" Fireplace
+map <leader>e :%Eval<CR>
+map <leader>c :Connect<CR>
 
 " CtrlP
 let g:ctrlp_custom_ignore = '\vcoverage\/'
+
+" The Silver Searcher
+if executable('ag')
+  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+  let g:ctrlp_use_caching = 0 " ag is fast; we don't need to cache
+endif
+
 "let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
 "let g:ctrlp_custom_ignore = {
 "  \ 'dir':  '\v^coverage\/',
@@ -119,8 +165,14 @@ set smartindent
 set guifont=Monaco:h14 " change the font in the GUI
 set guioptions-=T " Get rid of the annoying toolbar
 set diffopt+=iwhite " Ignore whitespace when diffing
-set textwidth=0
+set textwidth=0 " This should default to 0
+set wrapmargin=0 " This should default to 0
 set relativenumber
+set backupdir=~/tmp
+set directory=~/tmp
+set undodir=~/tmp
+set nowritebackup
+set noundofile " this should have been off by default...
 
 syntax on " syntax highlighting on
 
@@ -133,6 +185,3 @@ source $VIMRUNTIME/vimrc_example.vim
 if filereadable($HOME . '/.host_vimrc')
   source $HOME/.host_vimrc " Keep computer-specific Vim commands here
 endif
-
-set nobackup " keep gVim from leaving ~ backup files
-set noundofile " this should have been off by default...

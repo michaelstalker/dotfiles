@@ -20,19 +20,23 @@ alias v='vim'
 alias psr='ps -ef | grep ruby'
 
 # Git
+alias ga.='git add .'
+alias gb='git branch'
+alias gbm='git branch --merged'
+alias gc='git commit'
+alias gca='git commit --amend'
+alias gcf='git clean -f'
+alias gcn='git clean -n'
+alias gco='git checkout'
+alias gcod='git checkout dev'
+alias gd='git diff'
+alias gdc='git diff --cached'
+alias glr='git pull --rebase'
+alias grb='git rebase'
 alias gs='git status'
 alias gsh='git stash'
 alias gsp='git stash pop'
-alias gd='git diff'
-alias gdc='git diff --cached'
-alias ga.='git add --all .'
-alias gpr='git pull --rebase'
-alias gc='git commit'
-alias gca='git commit --amend'
-alias gb='git branch'
-alias gco='git checkout'
-alias gcn='git clean -n'
-alias gcf='git clean -f'
+alias wip='gc --no-verify -m "WIP"'
 
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
@@ -54,26 +58,36 @@ alias bower='noglob bower'
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(rails git bundler)
+plugins=(rails git bundler tmuxinator)
 
 # Source files
 source $ZSH/oh-my-zsh.sh
-
-if [ -f ~/.host_zshrc ]; then
-  source ~/.host_zshrc
-fi
 
 # Turn off auto-correction
 unsetopt correct_all
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
-#
+
 # Set environment variables
 export EDITOR=vim
 export BUNDLER_EDITOR=vim
-export PATH=/Applications/Utilities/larceny-0.97-bin-native-ia32-macosx:/Applications/Utilities:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/sbin:/usr/X11/bin:/usr/local/git/bin:/usr/local/bin/ctags:$PATH
+export PATH=/Applications/Utilities/larceny-0.97-bin-native-ia32-macosx:$PATH
+export PATH=/Applications/Utilities:$PATH
+export PATH=/usr/bin:$PATH
+export PATH=/usr/local/bin:$PATH
+export PATH=/bin:$PATH
+export PATH=/usr/sbin:$PATH
+export PATH=/sbin:$PATH
+export PATH=/usr/local/sbin:$PATH
+export PATH=/usr/local/share/npm/bin:$PATH
+export PATH=/usr/local/git/bin:$PATH
+export PATH=/usr/local/bin/ctags:$PATH
+export PATH=/usr/X11/bin:$PATH
 
-# rbenv
-eval "$(rbenv init -)"
+source /usr/local/share/chruby/chruby.sh
+source /usr/local/share/chruby/auto.sh
+
+if [ -f ~/.host_zshrc ]; then
+  source ~/.host_zshrc
+fi
