@@ -58,7 +58,6 @@ alias bower='noglob bower'
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
 plugins=(rails git bundler tmuxinator)
 
 # Source files
@@ -85,13 +84,9 @@ export PATH=/usr/local/share/npm/bin:$PATH
 export PATH=/usr/local/git/bin:$PATH
 export PATH=/usr/local/bin/ctags:$PATH
 export PATH=/usr/X11/bin:$PATH
-# export PATH=$HOME/.rbenv/bin:$PATH
 
 source /usr/local/share/chruby/chruby.sh
 source /usr/local/share/chruby/auto.sh
-
-# rbenv
-# eval "$(rbenv init -)"
 
 if [ -f ~/.host_zshrc ]; then
   source ~/.host_zshrc

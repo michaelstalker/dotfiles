@@ -11,6 +11,7 @@ Bundle 'kchmck/vim-coffee-script'
 Bundle 'pangloss/vim-javascript'
 Bundle 'tpope/vim-rails'
 Bundle 'elixir-lang/vim-elixir'
+Bundle 'wlangstroth/vim-racket'
 Bundle 'scrooloose/syntastic'
 Bundle 'slim-template/vim-slim'
 Bundle 'tpope/vim-leiningen'
@@ -69,11 +70,18 @@ imap kj <Esc>
 imap jk <Esc>
 map <Space> :
 
+"" Windows
 " Traversing windows
 map <Down> <C-W>j
 map <Up> <C-W>k
 map <Right> <C-W>l
 map <Left> <C-W>h
+
+" Resizing panes
+map <C-l> :30winc ><CR>
+map <C-h> :30winc <<CR>
+map <C-j> :20winc +<CR>
+map <C-k> :20winc -<CR>
 
 " Tagbar
 map <leader>t :TagbarToggle<CR>
@@ -99,9 +107,8 @@ nmap <D-8> 8gt
 nmap <D-9> 9gt
 
 " NERDTree
-imap <D-d> <ESC>:NERDTreeToggle<CR>i
-map <D-d> :NERDTreeToggle<CR>:set rnu<CR>
 map <leader>d :NERDTreeToggle<CR>:set rnu<CR>
+map <leader>f :NERDTreeFind<CR>:set rnu<CR>
 
 map <leader>n :set nornu number<CR>
 map <leader>r :set rnu nonumber<CR>
@@ -158,7 +165,8 @@ set smartindent
 set guifont=Monaco:h14 " change the font in the GUI
 set guioptions-=T " Get rid of the annoying toolbar
 set diffopt+=iwhite " Ignore whitespace when diffing
-set textwidth=0
+set textwidth=0 " This should default to 0
+set wrapmargin=0 " This should default to 0
 set relativenumber
 set backupdir=~/tmp
 set directory=~/tmp
