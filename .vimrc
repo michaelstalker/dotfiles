@@ -39,7 +39,7 @@ Bundle 'ruby-matchit'
 Bundle 'AnsiEsc.vim'
 Bundle 'xmledit'
 Bundle 'nathanaelkane/vim-indent-guides'
-Bundle 'amdt/vim-niji.git'
+Bundle 'raymond-w-ko/vim-niji.git'
 Bundle 'paredit.vim'
 
 " Snippets
@@ -185,3 +185,14 @@ source $VIMRUNTIME/vimrc_example.vim
 if filereadable($HOME . '/.host_vimrc')
   source $HOME/.host_vimrc " Keep computer-specific Vim commands here
 endif
+
+" vp doesn't replace paste buffer
+function! RestoreRegister()
+  let @" = s:restore_reg
+  return ''
+endfunction
+function! s:Repl()
+  let s:restore_reg = @"
+  return "p@=RestoreRegister()\<cr>"
+endfunction
+vmap <silent> <expr> p <sid>Repl()
