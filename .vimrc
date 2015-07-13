@@ -39,7 +39,7 @@ Bundle 'ruby-matchit'
 Bundle 'AnsiEsc.vim'
 Bundle 'xmledit'
 Bundle 'nathanaelkane/vim-indent-guides'
-Bundle 'raymond-w-ko/vim-niji.git'
+Bundle 'vim-niji'
 Bundle 'paredit.vim'
 
 " Snippets
@@ -65,6 +65,7 @@ filetype plugin indent on " required by Vundle
 let mapleader = ','
 colorscheme jellybeans
 
+imap jj <Esc>
 imap kk <Esc>
 imap kj <Esc>
 imap jk <Esc>

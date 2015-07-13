@@ -18,6 +18,7 @@ alias rdbm='rake db:migrate db:test:clone'
 alias b='bundle'
 alias v='vim'
 alias psr='ps -ef | grep ruby'
+alias gdm='git-delete-merged'
 
 # Git
 alias ga.='git add .'
@@ -36,7 +37,8 @@ alias grb='git rebase'
 alias gs='git status'
 alias gsh='git stash'
 alias gsp='git stash pop'
-alias wip='gc --no-verify -m "WIP"'
+alias wip='git commit --no-verify -m "WIP"'
+alias glog='git log --graph --abbrev-commit --decorate --date=relative --format=format:"%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)" --all'
 
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
@@ -77,6 +79,7 @@ export PATH=/Applications/Utilities:$PATH
 export PATH=/usr/bin:$PATH
 export PATH=/usr/local/bin:$PATH
 export PATH=/bin:$PATH
+export PATH=~/bin:$PATH
 export PATH=/usr/sbin:$PATH
 export PATH=/sbin:$PATH
 export PATH=/usr/local/sbin:$PATH
