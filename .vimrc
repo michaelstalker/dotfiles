@@ -14,9 +14,9 @@ Bundle 'elixir-lang/vim-elixir'
 Bundle 'wlangstroth/vim-racket'
 Bundle 'scrooloose/syntastic'
 Bundle 'slim-template/vim-slim'
-Bundle 'tpope/vim-leiningen'
 Bundle 'tpope/vim-projectionist'
 Bundle 'tpope/vim-dispatch'
+Bundle 'tpope/vim-classpath'
 Bundle 'tpope/vim-fireplace'
 Bundle 'tpope/vim-repeat'
 Bundle 'guns/vim-clojure-highlight'
@@ -41,23 +41,10 @@ Bundle 'xmledit'
 Bundle 'nathanaelkane/vim-indent-guides'
 Bundle 'vim-niji'
 Bundle 'paredit.vim'
-
-" Snippets
-Bundle 'MarcWeber/vim-addon-mw-utils'
-Bundle 'tomtom/tlib_vim'
-Bundle 'garbas/vim-snipmate'
-Bundle 'honza/vim-snippets'
+Bundle 'junegunn/vim-easy-align'
 
 " Color schemes
-Bundle 'Lokaltog/vim-distinguished'
 Bundle 'nanotech/jellybeans.vim'
-Bundle 'jpo/vim-railscasts-theme'
-Bundle 'tpope/vim-vividchalk'
-Bundle 'tomasr/molokai'
-Bundle 'matthewtodd/vim-twilight'
-Bundle 'wesgibbs/vim-irblack'
-Bundle 'guardian'
-Bundle 'brafales/vim-desert256'
 
 call vundle#end() " required by Vundle
 filetype plugin indent on " required by Vundle
@@ -117,7 +104,15 @@ map <leader>= <C-w>=
 map <leader>b :Gblame<CR>
 map <leader>v :tabedit $MYVIMRC<CR>
 
-map <leader>s :Ag <C-R><C-W><CR>
+map <leader>s :Ag <C-r><C-w><CR>
+
+"" Vim EasyAlign
+" Start interactive EasyAlign in visual mode (e.g. vip<Enter>)
+vmap <Enter> <Plug>(EasyAlign)
+
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
+
 
 " Fireplace
 map <leader>e :%Eval<CR>
@@ -131,12 +126,6 @@ if executable('ag')
   let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
   let g:ctrlp_use_caching = 0 " ag is fast; we don't need to cache
 endif
-
-"let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
-"let g:ctrlp_custom_ignore = {
-"  \ 'dir':  '\v^coverage\/',
-"  \ }
-" let g:ctrlp_regexp = 1
 
 fun! <SID>StripTrailingWhitespaces()
     let line = line(".")
