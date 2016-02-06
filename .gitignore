@@ -7,3 +7,12 @@
 .netrwhist
 .vim/bundle/
 !.vim/bundle/vundle/
+
+# Emacs
+*~
+*#
+auto-save-list
+elpa
+projectile-bookmarks.eld
+quelpa
+themes
