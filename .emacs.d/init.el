@@ -32,8 +32,8 @@
   (set-face-foreground 'sp-show-pair-match-face "white"))
 
 (defadvice terminal-init-screen
-    ;; The advice is named `tmux', and is run before `terminal-init-screen' runs.
-    (before tmux activate)
+  ;; The advice is named `tmux', and is run before `terminal-init-screen' runs.
+  (before tmux activate)
   ;; Docstring.  This describes the advice and is made available inside emacs;
   ;; for example when doing C-h f terminal-init-screen RET
   "Apply xterm keymap, allowing use of keys passed through tmux."
@@ -42,22 +42,6 @@
       (let ((map (copy-keymap xterm-function-map)))
 	(set-keymap-parent map (keymap-parent input-decode-map))
 	(set-keymap-parent input-decode-map map))))
-
-;; Allow certain key combinations in the terminal version of Emacs
-;; (define-key input-decode-map "\e[1;4A" [M-up])
-;; (define-key input-decode-map "\e[1;4B" [M-down])
-;; (define-key input-decode-map "\e[1;4C" [M-right])
-;; (define-key input-decode-map "\e[1;4D" [M-left])
-;; (define-key input-decode-map "\e[1;5A" [C-up])
-;; (define-key input-decode-map "\e[1;5B" [C-down])
-;; (define-key input-decode-map "\e[1;5C" [C-right])
-;; (define-key input-decode-map "\e[1;5D" [C-left])
-;; (define-key input-decode-map "\e[1;8A" [C-M-up])
-;; (define-key input-decode-map "\e[1;8B" [C-M-down])
-;; (define-key input-decode-map "\e[1;8C" [C-M-right])
-;; (define-key input-decode-map "\e[1;8D" [C-M-left])
-
-;; (define-key input-decode-map "\e[1;8x]" [C-M-x])
 
 (require 'rainbow-delimiters)
 (show-paren-mode 1)
