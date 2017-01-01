@@ -12,7 +12,7 @@ Bundle 'pangloss/vim-javascript'
 Bundle 'tpope/vim-rails'
 Bundle 'elixir-lang/vim-elixir'
 Bundle 'wlangstroth/vim-racket'
-Bundle 'scrooloose/syntastic'
+Bundle 'vim-syntastic/syntastic'
 Bundle 'slim-template/vim-slim'
 Bundle 'tpope/vim-projectionist'
 Bundle 'tpope/vim-dispatch'
@@ -52,10 +52,7 @@ filetype plugin indent on " required by Vundle
 let mapleader = ','
 colorscheme jellybeans
 
-imap jj <Esc>
-imap kk <Esc>
 imap kj <Esc>
-imap jk <Esc>
 map <Space> :
 
 "" Windows
@@ -108,7 +105,7 @@ map <leader>s :Ag <C-r><C-w><CR>
 
 "" Vim EasyAlign
 " Start interactive EasyAlign in visual mode (e.g. vip<Enter>)
-vmap <Enter> <Plug>(EasyAlign)
+xmap <Enter> <Plug>(EasyAlign)
 
 " Start interactive EasyAlign for a motion/text object (e.g. gaip)
 nmap ga <Plug>(EasyAlign)
@@ -186,3 +183,14 @@ function! s:Repl()
   return "p@=RestoreRegister()\<cr>"
 endfunction
 vmap <silent> <expr> p <sid>Repl()
+
+" Syntastic
+" set statusline+=%#warningmsg#
+" set statusline+=%{SyntasticStatuslineFlag()}
+" set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_javascript_checkers = ['eslint']

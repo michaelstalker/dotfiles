@@ -66,11 +66,25 @@
  '(coffee-tab-width 2)
  '(custom-safe-themes
    (quote
-    ("47d9be69b3f83450d9e55f08ba84a1199348ccc7f7eb0c11c56f3626e7dc9afd" default))))
+    ("b7ba8bd70d2c954e326144c5bf11eecffd55683dfa76aa16bc53572a6184bc1d" "5c6d40ef6e7bbe9e83dc0e32db794c7e9a6a0d9eb7d6a874aaf9744c053842b4" "47d9be69b3f83450d9e55f08ba84a1199348ccc7f7eb0c11c56f3626e7dc9afd" default))))
 
 ;; Color themes
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
 (load-theme 'ujelly)
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(rainbow-delimiters-depth-1-face ((t (:foreground "red1"))))
+ '(rainbow-delimiters-depth-2-face ((t (:foreground "yellow1"))))
+ '(rainbow-delimiters-depth-3-face ((t (:foreground "green1"))))
+ '(rainbow-delimiters-depth-4-face ((t (:foreground "cyan1"))))
+ '(rainbow-delimiters-depth-5-face ((t (:foreground "magenta1"))))
+ '(rainbow-delimiters-depth-6-face ((t (:foreground "red1"))))
+ '(rainbow-delimiters-depth-7-face ((t (:foreground "yellow1"))))
+ '(rainbow-delimiters-depth-8-face ((t (:foreground "green1"))))
+ '(rainbow-delimiters-depth-9-face ((t (:foreground "cyan1")))))
 
 ;; Visual settings
 (use-package visual-settings
@@ -93,12 +107,6 @@
 
 (setq slime-contribs '(slime-fancy))
 (setq geiser-active-implementations '(racket))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
 
 (setq
  backup-by-copying t ; don't clobber symlinks
@@ -113,3 +121,37 @@
 (require 'ido)
 (ido-mode t)
 (setq ido-enable-flex-matching t) ; enable fuzzy matching
+
+;; NeoTree
+(add-to-list 'load-path "/some/path/neotree")
+(require 'neotree)
+(global-set-key [f8] 'neotree-toggle)
+
+;; Share Mac OS X clipboard
+(defun copy-from-osx ()
+  (shell-command-to-string "pbpaste"))
+
+(defun paste-to-osx (text &optional push)
+  (let ((process-connection-type nil))
+    (let ((proc (start-process "pbcopy" "*Messages*" "pbcopy")))
+      (process-send-string proc text)
+      (process-send-eof proc))))
+
+(setq interprogram-cut-function 'paste-to-osx)
+(setq interprogram-paste-function 'copy-from-osx)
+
+;; Remove menu bar
+(menu-bar-mode -1)
+
+(require 'slim-mode)
+
+;; auto-complete
+(ac-config-default)
+
+(setq js-indent-level 2)
+(setq web-mode-css-indent-offset 2)
+
+;; Blueprint mode
+(autoload 'apib-mode "apib-mode"
+  "Major mode for editing API Blueprint files" t)
+(add-to-list 'auto-mode-alist '("\\.apib\\'" . apib-mode))

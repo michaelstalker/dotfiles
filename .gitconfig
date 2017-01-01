@@ -1,3 +1,5 @@
+[core]
+  excludesfile = /Users/mstalker/.gitignore
 [user]
   name = Michael Stalker
   email = mtstalker@gmail.com

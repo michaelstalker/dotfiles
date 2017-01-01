@@ -6,6 +6,14 @@ ZSH=$HOME/.oh-my-zsh
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
 ZSH_THEME="robbyrussell"
+#
+# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
+# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
+plugins=(rails git bundler tmuxinator)
+
+# Source files
+source $ZSH/oh-my-zsh.sh
+
 
 # Rake
 alias rake='noglob rake'
@@ -24,7 +32,7 @@ alias gdm='git-delete-merged'
 alias ga.='git add .'
 alias gb='git branch'
 alias gbm='git branch --merged'
-alias gc='git commit'
+# alias gc='git commit --verbose'
 alias gca='git commit --amend'
 alias gcf='git clean -f'
 alias gcn='git clean -n'
@@ -40,30 +48,8 @@ alias gsp='git stash pop'
 alias wip='git commit --no-verify -m "WIP"'
 alias glog='git log --graph --abbrev-commit --decorate --date=relative --format=format:"%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)" --all'
 
-# Set to this to use case-sensitive completion
-# CASE_SENSITIVE="true"
-
-# Comment this out to disable weekly auto-update checks
-# DISABLE_AUTO_UPDATE="true"
-
-# Uncomment following line if you want to disable colors in ls
-# DISABLE_LS_COLORS="true"
-
-# Uncomment following line if you want to disable autosetting terminal title.
-# DISABLE_AUTO_TITLE="true"
-
-# Uncomment following line if you want red dots to be displayed while waiting for completion
-# COMPLETION_WAITING_DOTS="true"
-
 # JavaScript
 alias bower='noglob bower'
-
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-plugins=(rails git bundler tmuxinator)
-
-# Source files
-source $ZSH/oh-my-zsh.sh
 
 # Turn off auto-correction
 unsetopt correct_all
@@ -91,6 +77,14 @@ export PATH=/usr/X11/bin:$PATH
 source /usr/local/share/chruby/chruby.sh
 source /usr/local/share/chruby/auto.sh
 
+if [ -f ~/.bin/tmuxinator.zsh ]; then
+  source ~/.bin/tmuxinator.zsh
+fi
+
 if [ -f ~/.host_zshrc ]; then
   source ~/.host_zshrc
+fi
+
+if which jenv > /dev/null; then
+  eval "$(jenv init -)";
 fi

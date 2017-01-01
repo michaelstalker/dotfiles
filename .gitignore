@@ -11,6 +11,7 @@
 # Emacs
 *~
 *#
+.#*
 auto-save-list
 elpa
 projectile-bookmarks.eld
