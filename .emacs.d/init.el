@@ -155,3 +155,6 @@
 (autoload 'apib-mode "apib-mode"
   "Major mode for editing API Blueprint files" t)
 (add-to-list 'auto-mode-alist '("\\.apib\\'" . apib-mode))
+
+;; Figwheel
+(setq cider-cljs-lein-repl "(do (use 'figwheel-sidecar.repl-api) (start-figwheel!) (cljs-repl))")
