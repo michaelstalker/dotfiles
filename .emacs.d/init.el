@@ -66,7 +66,10 @@
  '(coffee-tab-width 2)
  '(custom-safe-themes
    (quote
-    ("be4025b1954e4ac2a6d584ccfa7141334ddd78423399447b96b6fa582f206194" "b7ba8bd70d2c954e326144c5bf11eecffd55683dfa76aa16bc53572a6184bc1d" "5c6d40ef6e7bbe9e83dc0e32db794c7e9a6a0d9eb7d6a874aaf9744c053842b4" "47d9be69b3f83450d9e55f08ba84a1199348ccc7f7eb0c11c56f3626e7dc9afd" default))))
+    ("be4025b1954e4ac2a6d584ccfa7141334ddd78423399447b96b6fa582f206194" "b7ba8bd70d2c954e326144c5bf11eecffd55683dfa76aa16bc53572a6184bc1d" "5c6d40ef6e7bbe9e83dc0e32db794c7e9a6a0d9eb7d6a874aaf9744c053842b4" "47d9be69b3f83450d9e55f08ba84a1199348ccc7f7eb0c11c56f3626e7dc9afd" default)))
+ '(package-selected-packages
+   (quote
+    (apib-mode flycheck flycheck-credo geiser nodejs-repl web-mode ujelly-theme smartparens slime slim-mode rainbow-delimiters quelpa-use-package projectile neotree markdown-mode magit clj-refactor ag ac-alchemist))))
 
 ;; Color themes
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
@@ -106,7 +109,7 @@
      (ANY 'defun)))
 
 (setq slime-contribs '(slime-fancy))
-(setq geiser-active-implementations '(racket))
+;; (setq geiser-active-implementations '(racket mit))
 
 (setq
  backup-by-copying t ; don't clobber symlinks
@@ -147,9 +150,17 @@
 
 ;; auto-complete
 (ac-config-default)
+(add-hook 'after-init-hook 'global-company-mode)
 
+;; Indentation
+;;; Use spaces instead of tabs when auto-indenting
+(setq-default indent-tabs-mode nil)
+(setq-default tab-width 2)
 (setq js-indent-level 2)
 (setq web-mode-css-indent-offset 2)
+(setq web-mode-markup-indent-offset 2)
+(setq web-mode-code-indent-offset 2)
+(setq css-indent-offset 2)
 
 ;; Blueprint mode
 (autoload 'apib-mode "apib-mode"
@@ -158,3 +169,21 @@
 
 ;; Figwheel
 (setq cider-cljs-lein-repl "(do (use 'figwheel-sidecar.repl-api) (start-figwheel!) (cljs-repl))")
+
+;; Elixir
+(add-hook 'elixir-mode-hook (lambda () (alchemist-mode) (rainbow-delimiters-mode)))
+;; (eval-after-load 'flycheck
+;;   '(flycheck-credo-setup))
+;; (add-hook 'elixir-mode-hook 'flycheck-mode)
+
+;; Scheme
+(add-hook 'scheme-mode-hook (lambda () (rainbow-delimiters-mode)))
+
+;; API Blueprint
+(autoload 'apib-mode "apib-mode"
+        "Major mode for editing API Blueprint files" t)
+(add-to-list 'auto-mode-alist '("\\.apib\\'" . apib-mode))
+
+;; Web View
+(require 'web-mode)
+(add-to-list 'auto-mode-alist '("\\.eex\\'" . web-mode))

@@ -9,6 +9,7 @@ Bundle 'gmarik/Vundle.vim'
 " Language, framework, and tool support
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'pangloss/vim-javascript'
+Bundle 'mxw/vim-jsx'
 Bundle 'tpope/vim-rails'
 Bundle 'elixir-lang/vim-elixir'
 Bundle 'wlangstroth/vim-racket'
@@ -32,7 +33,7 @@ Bundle 'terryma/vim-multiple-cursors'
 Bundle 'AndrewRadev/linediff.vim'
 Bundle 'majutsushi/tagbar'
 Bundle 'tpope/vim-surround'
-Bundle 'kien/ctrlp.vim'
+Bundle 'ctrlpvim/ctrlp.vim'
 Bundle 'rking/ag.vim'
 Bundle 'tmhedberg/matchit'
 Bundle 'ruby-matchit'
@@ -102,6 +103,7 @@ map <leader>b :Gblame<CR>
 map <leader>v :tabedit $MYVIMRC<CR>
 
 map <leader>s :Ag <C-r><C-w><CR>
+map <leader>c :tabc<CR>
 
 "" Vim EasyAlign
 " Start interactive EasyAlign in visual mode (e.g. vip<Enter>)
@@ -109,11 +111,6 @@ xmap <Enter> <Plug>(EasyAlign)
 
 " Start interactive EasyAlign for a motion/text object (e.g. gaip)
 nmap ga <Plug>(EasyAlign)
-
-
-" Fireplace
-map <leader>e :%Eval<CR>
-map <leader>c :Connect<CR>
 
 " CtrlP
 let g:ctrlp_custom_ignore = '\vcoverage\/'
@@ -145,7 +142,7 @@ set softtabstop=2 shiftwidth=2 expandtab
 set exrc " enable per-directory .vimrc files
 set nocompatible
 set lbr! " Wrap lines at word
-set clipboard+=unnamed " Share system clipboard.
+set clipboard=unnamed " Share system clipboard.
 set showmatch " show matching brackets
 set autoindent
 set smartindent
@@ -185,12 +182,10 @@ endfunction
 vmap <silent> <expr> p <sid>Repl()
 
 " Syntastic
-" set statusline+=%#warningmsg#
-" set statusline+=%{SyntasticStatuslineFlag()}
-" set statusline+=%*
-
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_javascript_checkers = ['eslint']
+
+let g:jsx_ext_required = 0
