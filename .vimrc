@@ -1,54 +1,55 @@
+set nocompatible
 filetype off " required for Vundle
 
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 " let Vundle manage Vundle. Required!
-Bundle 'gmarik/Vundle.vim'
+Plugin 'VundleVim/Vundle.vim'
 
 " Language, framework, and tool support
-Bundle 'kchmck/vim-coffee-script'
-Bundle 'pangloss/vim-javascript'
-Bundle 'mxw/vim-jsx'
-Bundle 'tpope/vim-rails'
-Bundle 'elixir-lang/vim-elixir'
-Bundle 'wlangstroth/vim-racket'
-Bundle 'vim-syntastic/syntastic'
-Bundle 'slim-template/vim-slim'
-Bundle 'tpope/vim-projectionist'
-Bundle 'tpope/vim-dispatch'
-Bundle 'tpope/vim-classpath'
-Bundle 'tpope/vim-fireplace'
-Bundle 'tpope/vim-repeat'
-Bundle 'guns/vim-clojure-highlight'
-Bundle 'guns/vim-clojure-static'
-Bundle 'sjl/tslime.vim'
+Plugin 'kchmck/vim-coffee-script'
+Plugin 'pangloss/vim-javascript'
+Plugin 'mxw/vim-jsx'
+Plugin 'tpope/vim-rails'
+Plugin 'elixir-lang/vim-elixir'
+Plugin 'wlangstroth/vim-racket'
+Plugin 'vim-syntastic/syntastic'
+Plugin 'slim-template/vim-slim'
+Plugin 'tpope/vim-projectionist'
+Plugin 'tpope/vim-dispatch'
+Plugin 'tpope/vim-classpath'
+Plugin 'tpope/vim-fireplace'
+Plugin 'tpope/vim-repeat'
+Plugin 'guns/vim-clojure-highlight'
+Plugin 'guns/vim-clojure-static'
+Plugin 'sjl/tslime.vim'
 
 " Miscellaneous bundles
-Bundle 'tpope/vim-endwise'
-Bundle 'tpope/vim-fugitive'
-Bundle 'scrooloose/nerdtree'
-Bundle 'tpope/vim-commentary'
-Bundle 'terryma/vim-multiple-cursors'
-Bundle 'AndrewRadev/linediff.vim'
-Bundle 'tpope/vim-surround'
-Bundle 'airblade/vim-gitgutter'
-Bundle 'junegunn/fzf'
-Bundle 'junegunn/fzf.vim'
-Bundle 'rking/ag.vim'
-Bundle 'tmhedberg/matchit'
-Bundle 'ruby-matchit'
-Bundle 'AnsiEsc.vim'
-Bundle 'xmledit'
-Bundle 'nathanaelkane/vim-indent-guides'
-Bundle 'vim-niji'
-Bundle 'paredit.vim'
-Bundle 'junegunn/vim-easy-align'
-Bundle 'godlygeek/tabular'
-Bundle 'plasticboy/vim-markdown'
+Plugin 'tpope/vim-endwise'
+Plugin 'tpope/vim-fugitive'
+Plugin 'scrooloose/nerdtree'
+Plugin 'tpope/vim-commentary'
+Plugin 'terryma/vim-multiple-cursors'
+Plugin 'AndrewRadev/linediff.vim'
+Plugin 'tpope/vim-surround'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'junegunn/fzf'
+Plugin 'junegunn/fzf.vim'
+Plugin 'rking/ag.vim'
+Plugin 'tmhedberg/matchit'
+Plugin 'ruby-matchit'
+Plugin 'AnsiEsc.vim'
+Plugin 'xmledit'
+Plugin 'nathanaelkane/vim-indent-guides'
+Plugin 'vim-niji'
+Plugin 'paredit.vim'
+Plugin 'junegunn/vim-easy-align'
+Plugin 'godlygeek/tabular'
+Plugin 'plasticboy/vim-markdown'
 
 " Color schemes
-Bundle 'nanotech/jellybeans.vim'
+Plugin 'nanotech/jellybeans.vim'
 
 call vundle#end() " required by Vundle
 filetype plugin indent on " required by Vundle
@@ -148,7 +149,6 @@ endif
 
 set softtabstop=2 shiftwidth=2 expandtab
 set exrc " enable per-directory .vimrc files
-set nocompatible
 set lbr! " Wrap lines at word
 set clipboard=unnamed " Share system clipboard.
 set showmatch " show matching brackets
