@@ -6,7 +6,7 @@
 .VimballRecord
 .netrwhist
 .vim/bundle/
-!.vim/bundle/vundle/
+!.vim/bundle/Vundle.vim
 
 # Emacs
 *~
