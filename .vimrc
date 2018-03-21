@@ -54,7 +54,11 @@ call vundle#end() " required by Vundle
 filetype plugin indent on " required by Vundle
 
 let mapleader = ','
-colorscheme jellybeans
+
+try
+  colorscheme jellybeans
+catch " deal with it
+endtry
 
 imap kj <Esc>
 map <Space> :
