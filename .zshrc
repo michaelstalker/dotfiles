@@ -88,3 +88,9 @@ fi
 if which jenv > /dev/null; then
   eval "$(jenv init -)";
 fi
+
+export PATH="$HOME/.yarn/bin:$PATH"
+[[ -s "$HOME/.avn/bin/avn.sh" ]] && source "$HOME/.avn/bin/avn.sh" # load avn
+
+# FZF
+export FZF_DEFAULT_COMMAND='fd --type f'

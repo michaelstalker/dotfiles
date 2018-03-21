@@ -69,7 +69,7 @@
     ("be4025b1954e4ac2a6d584ccfa7141334ddd78423399447b96b6fa582f206194" "b7ba8bd70d2c954e326144c5bf11eecffd55683dfa76aa16bc53572a6184bc1d" "5c6d40ef6e7bbe9e83dc0e32db794c7e9a6a0d9eb7d6a874aaf9744c053842b4" "47d9be69b3f83450d9e55f08ba84a1199348ccc7f7eb0c11c56f3626e7dc9afd" default)))
  '(package-selected-packages
    (quote
-    (apib-mode flycheck flycheck-credo geiser nodejs-repl web-mode ujelly-theme smartparens slime slim-mode rainbow-delimiters quelpa-use-package projectile neotree markdown-mode magit clj-refactor ag ac-alchemist))))
+    (elixir-mode alchemist docker-compose-mode dockerfile-mode yaml-mode apib-mode flycheck flycheck-credo geiser nodejs-repl web-mode ujelly-theme smartparens slime slim-mode rainbow-delimiters quelpa-use-package projectile neotree markdown-mode magit clj-refactor ag ac-alchemist))))
 
 ;; Color themes
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")

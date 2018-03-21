@@ -31,9 +31,10 @@ Bundle 'scrooloose/nerdtree'
 Bundle 'tpope/vim-commentary'
 Bundle 'terryma/vim-multiple-cursors'
 Bundle 'AndrewRadev/linediff.vim'
-Bundle 'majutsushi/tagbar'
 Bundle 'tpope/vim-surround'
-Bundle 'ctrlpvim/ctrlp.vim'
+Bundle 'airblade/vim-gitgutter'
+Bundle 'junegunn/fzf'
+Bundle 'junegunn/fzf.vim'
 Bundle 'rking/ag.vim'
 Bundle 'tmhedberg/matchit'
 Bundle 'ruby-matchit'
@@ -43,6 +44,8 @@ Bundle 'nathanaelkane/vim-indent-guides'
 Bundle 'vim-niji'
 Bundle 'paredit.vim'
 Bundle 'junegunn/vim-easy-align'
+Bundle 'godlygeek/tabular'
+Bundle 'plasticboy/vim-markdown'
 
 " Color schemes
 Bundle 'nanotech/jellybeans.vim'
@@ -113,13 +116,14 @@ xmap <Enter> <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
 
 " CtrlP
-let g:ctrlp_custom_ignore = '\vcoverage\/'
+" let g:ctrlp_custom_ignore = '\vcoverage\/'
 
 " The Silver Searcher
-if executable('ag')
-  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
-  let g:ctrlp_use_caching = 0 " ag is fast; we don't need to cache
-endif
+" if executable('ag')
+"   let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+"   let g:ctrlp_use_caching = 0 " ag is fast; we don't need to cache
+" endif
+map <C-p> :Files<CR>
 
 fun! <SID>StripTrailingWhitespaces()
     let line = line(".")
@@ -162,6 +166,7 @@ syntax on " syntax highlighting on
 
 " Automatically fix a misspelling
 ab teh the
+ab boostrap bootstrap
 
 " Source files. Refactor this.
 source $VIMRUNTIME/vimrc_example.vim
@@ -189,3 +194,9 @@ let g:syntastic_check_on_wq = 0
 let g:syntastic_javascript_checkers = ['eslint']
 
 let g:jsx_ext_required = 0
+
+" Markdown
+let g:vim_markdown_folding_disabled = 1
+
+" Groovy
+au BufNewFile,BufRead Jenkinsfile setf groovy
