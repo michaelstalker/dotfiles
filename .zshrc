@@ -74,8 +74,13 @@ export PATH=/usr/local/git/bin:$PATH
 export PATH=/usr/local/bin/ctags:$PATH
 export PATH=/usr/X11/bin:$PATH
 
-source /usr/local/share/chruby/chruby.sh
-source /usr/local/share/chruby/auto.sh
+if [ -f /usr/local/share/chruby/chruby.sh ]; then
+  source /usr/local/share/chruby/chruby.sh
+fi
+
+if [ -f /usr/local/share/chruby/auto.sh ]; then
+  source /usr/local/share/chruby/auto.sh
+fi
 
 if [ -f ~/.bin/tmuxinator.zsh ]; then
   source ~/.bin/tmuxinator.zsh
