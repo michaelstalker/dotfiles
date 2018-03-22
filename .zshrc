@@ -98,4 +98,9 @@ export PATH="$HOME/.yarn/bin:$PATH"
 [[ -s "$HOME/.avn/bin/avn.sh" ]] && source "$HOME/.avn/bin/avn.sh" # load avn
 
 # FZF
-export FZF_DEFAULT_COMMAND='fd --type f'
+if [[ $(command -v fd) ]];
+then
+  export FZF_DEFAULT_COMMAND='fd --type f';
+else
+  export FZF_DEFAULT_COMMAND='find * -type f';
+fi
