@@ -37,7 +37,7 @@
 [rerere]
 	enabled = 1
 [credential]
-  helper = osxkeychain
+	helper = osxkeychain
 [branch]
 	autosetuprebase = always
 [filter "lfs"]

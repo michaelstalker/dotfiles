@@ -54,6 +54,8 @@
 
 ;; Projectile project search
 (projectile-global-mode)
+;; (projectile-mode +1)
+(define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
 
 ;; Strip whitespace
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
@@ -66,10 +68,10 @@
  '(coffee-tab-width 2)
  '(custom-safe-themes
    (quote
-    ("be4025b1954e4ac2a6d584ccfa7141334ddd78423399447b96b6fa582f206194" "b7ba8bd70d2c954e326144c5bf11eecffd55683dfa76aa16bc53572a6184bc1d" "5c6d40ef6e7bbe9e83dc0e32db794c7e9a6a0d9eb7d6a874aaf9744c053842b4" "47d9be69b3f83450d9e55f08ba84a1199348ccc7f7eb0c11c56f3626e7dc9afd" default)))
+    ("4138944fbed88c047c9973f68908b36b4153646a045648a22083bd622d1e636d" "be4025b1954e4ac2a6d584ccfa7141334ddd78423399447b96b6fa582f206194" "b7ba8bd70d2c954e326144c5bf11eecffd55683dfa76aa16bc53572a6184bc1d" "5c6d40ef6e7bbe9e83dc0e32db794c7e9a6a0d9eb7d6a874aaf9744c053842b4" "47d9be69b3f83450d9e55f08ba84a1199348ccc7f7eb0c11c56f3626e7dc9afd" default)))
  '(package-selected-packages
    (quote
-    (elixir-mode alchemist docker-compose-mode dockerfile-mode yaml-mode apib-mode flycheck flycheck-credo geiser nodejs-repl web-mode ujelly-theme smartparens slime slim-mode rainbow-delimiters quelpa-use-package projectile neotree markdown-mode magit clj-refactor ag ac-alchemist))))
+    (ac-helm helm helm-projectile elixir-mode alchemist docker-compose-mode dockerfile-mode yaml-mode apib-mode flycheck flycheck-credo geiser nodejs-repl web-mode ujelly-theme smartparens slime slim-mode rainbow-delimiters quelpa-use-package projectile neotree markdown-mode magit clj-refactor ag ac-alchemist))))
 
 ;; Color themes
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
@@ -90,12 +92,12 @@
  '(rainbow-delimiters-depth-9-face ((t (:foreground "cyan1")))))
 
 ;; Visual settings
-(use-package visual-settings
-	     :ensure nil
-	     :init
-	     (line-number-mode)
-	     (column-number-mode)
-	     (global-linum-mode))
+ ;; (use-package visual-settings
+ ;;       :ensure nil
+ ;;       :init
+ ;;       (line-number-mode)
+ ;;       (column-number-mode)
+ ;;       (global-linum-mode))
 
 (eval-after-load 'clojure-mode
   '(define-clojure-indent
@@ -145,8 +147,6 @@
 
 ;; Remove menu bar
 (menu-bar-mode -1)
-
-(require 'slim-mode)
 
 ;; auto-complete
 (ac-config-default)

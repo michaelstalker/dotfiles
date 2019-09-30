@@ -37,7 +37,7 @@ alias gca='git commit --amend'
 alias gcf='git clean -f'
 alias gcn='git clean -n'
 alias gco='git checkout'
-alias gcod='git checkout dev'
+alias gcom='git checkout master'
 alias gd='git diff'
 alias gdc='git diff --cached'
 alias glr='git pull --rebase'
@@ -50,6 +50,9 @@ alias glog='git log --graph --abbrev-commit --decorate --date=relative --format=
 
 # JavaScript
 alias bower='noglob bower'
+
+# Elixir
+alias check='mix test && mix credo && mix dialyzer'
 
 # Turn off auto-correction
 unsetopt correct_all

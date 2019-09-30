@@ -78,7 +78,7 @@ map <C-j> :20winc +<CR>
 map <C-k> :20winc -<CR>
 
 " Tagbar
-map <leader>t :TagbarToggle<CR>
+map <leader>t :tabnew<CR>
 
 " Traversing tabs
 imap <D-1> <ESC>1gt
