@@ -17,23 +17,19 @@ source $ZSH/oh-my-zsh.sh
 
 # Rake
 alias rake='noglob rake'
-alias rr='rake routes'
-alias rrg='rake routes | grep'
-alias rtg='rake -T | grep'
 alias rdbm='rake db:migrate db:test:clone'
 
 # Misc
 alias b='bundle'
 alias v='vim'
-alias psr='ps -ef | grep ruby'
-alias gdm='git-delete-merged'
+alias k='kubectl'
 
 # Git
 alias ga.='git add .'
 alias gb='git branch'
 alias gbm='git branch --merged'
-# alias gc='git commit --verbose'
 alias gca='git commit --amend'
+alias gcan='git commit --amend --no-edit'
 alias gcf='git clean -f'
 alias gcn='git clean -n'
 alias gco='git checkout'
@@ -63,6 +59,7 @@ export PATH="/usr/local/heroku/bin:$PATH"
 # Set environment variables
 export EDITOR=vim
 export BUNDLER_EDITOR=vim
+export ERL_AFLAGS="-kernel shell_history enabled"
 export PATH=/Applications/Utilities/larceny-0.97-bin-native-ia32-macosx:$PATH
 export PATH=/Applications/Utilities:$PATH
 export PATH=/usr/bin:$PATH
