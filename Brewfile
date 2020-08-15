@@ -7,6 +7,7 @@ brew "coreutils"
 # Used by asdf
 brew "curl"
 brew "emacs"
+brew "fzf"
 # Used by asdf
 brew "git"
 brew "jq"
