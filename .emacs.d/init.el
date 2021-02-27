@@ -1,28 +1,65 @@
 (require 'package)
-(add-to-list 'package-archives
-	     '("melpa" . "http://melpa.org/packages/")
-	     t)
 
 (add-to-list 'package-archives
-	     '("melpa-stable" . "https://stable.melpa.org/packages/") t)
-
+	           '("melpa-stable" . "https://stable.melpa.org/packages/")
+             t)
+(add-to-list 'package-archives
+             '("melpa" . "http://melpa.org/packages/")
+             t)
 (package-initialize)
 
 (setq quelpa-update-melpa-p nil)
-(unless (require 'quelpa nil t)
-  (with-temp-buffer
-    (url-insert-file-contents "https://raw.github.com/quelpa/quelpa/master/bootstrap.el")
-    (eval-buffer)))
+(unless (package-installed-p 'quelpa)
+    (with-temp-buffer
+      (url-insert-file-contents "https://github.com/quelpa/quelpa/raw/master/quelpa.el")
+      (eval-buffer)
+      (quelpa-self-upgrade)))
 
-;; install use-package and the quelpa handler
+;; Install use-package and the quelpa handler
 (quelpa '(use-package :fetcher github :repo "jwiegley/use-package" :stable t))
 (quelpa '(quelpa-use-package :fetcher github :repo "quelpa/quelpa-use-package"))
 (require 'quelpa-use-package)
 (setq use-package-always-ensure t)
 (quelpa-use-package-activate-advice)
 
-;; Parens
+(use-package alchemist
+  :ensure t)
+
+(use-package auto-complete
+  :ensure t
+
+  :config
+  (ac-config-default))
+
+(use-package company
+  :ensure t
+
+  :config
+  (add-hook 'after-init-hook 'global-company-mode))
+
+(use-package ac-alchemist
+  :ensure t)
+
+(use-package cider
+  :ensure t)
+
+(use-package elixir-mode
+  :ensure t)
+
+(use-package magit
+  :ensure t)
+
+(use-package neotree
+  :ensure t
+
+  :config
+  (add-to-list 'load-path "/some/path/neotree")
+  (require 'neotree)
+  (global-set-key [f8] 'neotree-toggle))
+
 (use-package smartparens
+  :ensure t
+
   :config
   (sp-use-smartparens-bindings)
   (show-smartparens-global-mode)
@@ -31,6 +68,51 @@
   (set-face-background 'sp-show-pair-match-face "deep sky blue")
   (set-face-foreground 'sp-show-pair-match-face "white"))
 
+;; Project search
+(use-package projectile
+  :ensure t
+
+  :config
+  (projectile-global-mode)
+  ;; (projectile-mode +1)
+  (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map))
+
+(use-package rainbow-delimiters
+  :ensure t
+
+  :config
+  (require 'rainbow-delimiters)
+  (show-paren-mode 1))
+
+(use-package ujelly-theme
+  :ensure t
+
+  :config
+  (add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
+  (load-theme 'ujelly t)
+  (custom-set-faces
+   ;; custom-set-faces was added by Custom.
+   ;; If you edit it by hand, you could mess it up, so be careful.
+   ;; Your init file should contain only one such instance.
+   ;; If there is more than one, they won't work right.
+   '(rainbow-delimiters-depth-1-face ((t (:foreground "red1"))))
+   '(rainbow-delimiters-depth-2-face ((t (:foreground "yellow1"))))
+   '(rainbow-delimiters-depth-3-face ((t (:foreground "green1"))))
+   '(rainbow-delimiters-depth-4-face ((t (:foreground "cyan1"))))
+   '(rainbow-delimiters-depth-5-face ((t (:foreground "magenta1"))))
+   '(rainbow-delimiters-depth-6-face ((t (:foreground "red1"))))
+   '(rainbow-delimiters-depth-7-face ((t (:foreground "yellow1"))))
+   '(rainbow-delimiters-depth-8-face ((t (:foreground "green1"))))
+   '(rainbow-delimiters-depth-9-face ((t (:foreground "cyan1"))))))
+
+(use-package web-mode
+  :ensure t
+
+  :config
+  (require 'web-mode)
+  (add-to-list 'auto-mode-alist '("\\.eex\\'" . web-mode)))
+
+;; Tmux
 (defadvice terminal-init-screen
   ;; The advice is named `tmux', and is run before `terminal-init-screen' runs.
   (before tmux activate)
@@ -43,76 +125,7 @@
 	(set-keymap-parent map (keymap-parent input-decode-map))
 	(set-keymap-parent input-decode-map map))))
 
-(require 'rainbow-delimiters)
-(show-paren-mode 1)
-
-(defun customize-clojure-mode ()
-  (turn-on-smartparens-strict-mode)
-  (rainbow-delimiters-mode))
-
-(add-hook 'clojure-mode-hook 'customize-clojure-mode)
-
-;; Projectile project search
-(projectile-global-mode)
-;; (projectile-mode +1)
-(define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
-
-;; Strip whitespace
-(add-hook 'before-save-hook 'delete-trailing-whitespace)
-
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(coffee-tab-width 2)
- '(custom-safe-themes
-   (quote
-    ("4138944fbed88c047c9973f68908b36b4153646a045648a22083bd622d1e636d" "be4025b1954e4ac2a6d584ccfa7141334ddd78423399447b96b6fa582f206194" "b7ba8bd70d2c954e326144c5bf11eecffd55683dfa76aa16bc53572a6184bc1d" "5c6d40ef6e7bbe9e83dc0e32db794c7e9a6a0d9eb7d6a874aaf9744c053842b4" "47d9be69b3f83450d9e55f08ba84a1199348ccc7f7eb0c11c56f3626e7dc9afd" default)))
- '(package-selected-packages
-   (quote
-    (ac-helm helm helm-projectile elixir-mode alchemist docker-compose-mode dockerfile-mode yaml-mode apib-mode flycheck flycheck-credo geiser nodejs-repl web-mode ujelly-theme smartparens slime slim-mode rainbow-delimiters quelpa-use-package projectile neotree markdown-mode magit clj-refactor ag ac-alchemist))))
-
-;; Color themes
-(add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
-(load-theme 'ujelly)
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(rainbow-delimiters-depth-1-face ((t (:foreground "red1"))))
- '(rainbow-delimiters-depth-2-face ((t (:foreground "yellow1"))))
- '(rainbow-delimiters-depth-3-face ((t (:foreground "green1"))))
- '(rainbow-delimiters-depth-4-face ((t (:foreground "cyan1"))))
- '(rainbow-delimiters-depth-5-face ((t (:foreground "magenta1"))))
- '(rainbow-delimiters-depth-6-face ((t (:foreground "red1"))))
- '(rainbow-delimiters-depth-7-face ((t (:foreground "yellow1"))))
- '(rainbow-delimiters-depth-8-face ((t (:foreground "green1"))))
- '(rainbow-delimiters-depth-9-face ((t (:foreground "cyan1")))))
-
-;; Visual settings
- ;; (use-package visual-settings
- ;;       :ensure nil
- ;;       :init
- ;;       (line-number-mode)
- ;;       (column-number-mode)
- ;;       (global-linum-mode))
-
-(eval-after-load 'clojure-mode
-  '(define-clojure-indent
-     (defroutes 'defun)
-     (context 'defun)
-     (GET 'defun)
-     (POST 'defun)
-     (PUT 'defun)
-     (DELETE 'defun)
-     (HEAD 'defun)
-     (ANY 'defun)))
-
-(setq slime-contribs '(slime-fancy))
-;; (setq geiser-active-implementations '(racket mit))
-
+;; Emacs backup behavior
 (setq
  backup-by-copying t ; don't clobber symlinks
  backup-directory-alist `(("." . "~/tmp")) ; don't litter my fs tree
@@ -127,11 +140,6 @@
 (ido-mode t)
 (setq ido-enable-flex-matching t) ; enable fuzzy matching
 
-;; NeoTree
-(add-to-list 'load-path "/some/path/neotree")
-(require 'neotree)
-(global-set-key [f8] 'neotree-toggle)
-
 ;; Share Mac OS X clipboard
 (defun copy-from-osx ()
   (shell-command-to-string "pbpaste"))
@@ -145,12 +153,12 @@
 (setq interprogram-cut-function 'paste-to-osx)
 (setq interprogram-paste-function 'copy-from-osx)
 
+;; Emacs window appearance
 ;; Remove menu bar
 (menu-bar-mode -1)
-
-;; auto-complete
-(ac-config-default)
-(add-hook 'after-init-hook 'global-company-mode)
+(line-number-mode)
+(column-number-mode)
+(global-linum-mode)
 
 ;; Indentation
 ;;; Use spaces instead of tabs when auto-indenting
@@ -167,6 +175,25 @@
   "Major mode for editing API Blueprint files" t)
 (add-to-list 'auto-mode-alist '("\\.apib\\'" . apib-mode))
 
+;; Clojure
+(defun customize-clojure-mode ()
+  (turn-on-smartparens-strict-mode)
+  (rainbow-delimiters-mode))
+
+(add-hook 'clojure-mode-hook 'customize-clojure-mode)
+(add-hook 'before-save-hook 'delete-trailing-whitespace)
+
+(eval-after-load 'clojure-mode
+  '(define-clojure-indent
+     (defroutes 'defun)
+     (context 'defun)
+     (GET 'defun)
+     (POST 'defun)
+     (PUT 'defun)
+     (DELETE 'defun)
+     (HEAD 'defun)
+     (ANY 'defun)))
+
 ;; Figwheel
 (setq cider-cljs-lein-repl "(do (use 'figwheel-sidecar.repl-api) (start-figwheel!) (cljs-repl))")
 
@@ -177,13 +204,30 @@
 ;; (add-hook 'elixir-mode-hook 'flycheck-mode)
 
 ;; Scheme
+;; (setq slime-contribs '(slime-fancy)) ; Try this if you install SLIME
 (add-hook 'scheme-mode-hook (lambda () (rainbow-delimiters-mode)))
 
-;; API Blueprint
-(autoload 'apib-mode "apib-mode"
-        "Major mode for editing API Blueprint files" t)
-(add-to-list 'auto-mode-alist '("\\.apib\\'" . apib-mode))
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(custom-safe-themes
+   '("3a9f65e0004068ecf4cf31f4e68ba49af56993c20258f3a49e06638c825fbfb6" default))
+ '(package-selected-packages
+   '(web-mode ujelly-theme smartparens rainbow-delimiters quelpa-use-package projectile neotree magit cider ac-alchemist)))
 
-;; Web View
-(require 'web-mode)
-(add-to-list 'auto-mode-alist '("\\.eex\\'" . web-mode))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(rainbow-delimiters-depth-1-face ((t (:foreground "red1"))))
+ '(rainbow-delimiters-depth-2-face ((t (:foreground "yellow1"))))
+ '(rainbow-delimiters-depth-3-face ((t (:foreground "green1"))))
+ '(rainbow-delimiters-depth-4-face ((t (:foreground "cyan1"))))
+ '(rainbow-delimiters-depth-5-face ((t (:foreground "magenta1"))))
+ '(rainbow-delimiters-depth-6-face ((t (:foreground "red1"))))
+ '(rainbow-delimiters-depth-7-face ((t (:foreground "yellow1"))))
+ '(rainbow-delimiters-depth-8-face ((t (:foreground "green1"))))
+ '(rainbow-delimiters-depth-9-face ((t (:foreground "cyan1")))))

@@ -19,3 +19,5 @@ quelpa
 themes
 .emacs.d/ido.last
 .emacs.d/ac-comphist.dat
+.emacs.d/network-security.data
+.emacs.d/transient/
