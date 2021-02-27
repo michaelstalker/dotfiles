@@ -1,7 +1,6 @@
 brew "asdf"
 # Used to install Erlang plugin for asdf
 brew "autoconf"
-brew "chruby"
 # Used by asdf
 brew "coreutils"
 # Used by asdf
@@ -16,7 +15,6 @@ brew "node"
 brew "openjdk"
 brew "openssl@1.1"
 brew "reattach-to-user-namespace"
-brew "ruby-install"
 brew "the_silver_searcher"
 brew "tmux"
 brew "vim"
